@@ -3,35 +3,12 @@
     <head>
         <meta charset="UTF-8" />
         <title>HOST</title>
-        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="https://vclass.walsted.dev/style.css" />
 
-        <script src="../libs/immutable.min.js"></script>
-        <script src="../libs/peerjs.min.js"></script>
-        <script src="../libs/util.js"></script>
-        <style>
-            .hidden {
-                display: none;
-            }
-            .full-width {
-                display: block;
-                width: -moz-available;
-                width: -webkit-fill-available;
-                width: fill-available;
-            }
-            button,
-            input {
-                margin-right: 0px;
-            }
-            code {
-                display: block;
-                margin-bottom: 6px;
-            }
-            #stream {
-                border: 1px solid #999;
-                width: 98%;
-                max-width: 860px;
-            }
-        </style>
+        <script src="https://vclass.walsted.dev/libs/immutable.min.js"></script>
+        <script src="https://vclass.walsted.dev/libs/peerjs.min.js"></script>
+        <script src="https://vclass.walsted.dev/libs/util.js"></script>
+        <script src="https://vclass.walsted.dev/libs/base.functions.js"></script>
     </head>
     <body>
         <div class="container">
@@ -71,7 +48,7 @@
                     placeholder="Write some jokes here..."
                     autocomplete="off"
                 />
-                <button class="full-width" onclick="send()">
+                <button class="full-width" onclick="send(message.value, 'message')">
                     SEND
                 </button>
             </div>
