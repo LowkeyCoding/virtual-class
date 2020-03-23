@@ -1,7 +1,10 @@
-// Stream section
 const streamElement = document.getElementById("stream");
+const message = document.getElementById('message');
+const signallerButton = document.getElementById("signallerBtn");
+
 const startElement = document.getElementById("start");
 const stopElement = document.getElementById("stop");
+
 var displayMediaOptions = {
     video: {
         cursor: "always"

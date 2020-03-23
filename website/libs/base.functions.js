@@ -1,7 +1,7 @@
 const updateMessageBoard = (connection, message) => {
     document.getElementById(
         'messageBoard',
-    ).innerText += `[${connection.peer}]: ${message}\n`;
+    ).innerText += `[${connection}]: ${message}\n`;
 }
 
 const updatePeerList = (peerList) => {
@@ -26,8 +26,8 @@ const broadcast = (data) => {
 
 const send = (message, type) => {
     const data = {
-        sender: peerId,
         message: message,
+        peer: null,
         type: type
     };
 
@@ -38,19 +38,26 @@ const send = (message, type) => {
 
     // host send
     if (!clientConnections.isEmpty()) {
-        broadcast({
-            ...data,
-            peers: generatePeerList(),
-        });
+        data.peer = peerId;
+        broadcast(data);
+        updateMessageBoard(data.peer, data.message);
     }
 
     document.getElementById('message').innerText = '';
 }
 
-const handleData = (data, connection) => {
-    if (data.type == "message"){
-        updateMessageBoard(connection, data.message);
-    } else if (data.type == "room update" && connection.peer == hostConnection.peer ) {
+const handleData = (data) => {
+    console.log("data:",data)
+    if (!data){
+        console.log("No data")
+    } else if (data.type  == "message"){
+        updateMessageBoard(data.peer, data.message);
+    } else if (data.type == "system-join") {
+        updateMessageBoard("SYSTEM", `${data.peer} joined.`);
+    } else if (data.type == "system-left") {
+        updateMessageBoard("SYSTEM", `${data.peer} left.`);
+    }else if (data.type == "room update" && data.peer == hostConnection.peer ) {
+        updateMessageBoard("SYSTEM", `${data.peer} changed room x`);
         updateRoom(data)
     }
 }
@@ -69,11 +76,10 @@ const show = (element) => {
 
 const reconnect = () => {
     console.log(`Reconnecting to signaller.`);
-    document.getElementById('signallerBtn').disabled = true;
-
-    document.getElementById(
-        'signallerBtn',
-    ).innerText = `◌ SEARCHING FOR SIGNALLER...`;
+    if(signallerButton){
+        signallerButton.disabled = true;
+        signallerButton.innerText = `◌ SEARCHING FOR SIGNALLER...`;
+    }
     peer.reconnect();
 }
 
@@ -86,16 +92,16 @@ const join = () => {
         console.log(
             `Connection to ${hostConnection.peer} established.`,
         );
-
-        document.getElementById(
-            'hostId',
-        ).innerText = `CONNECTED TO ${hostConnection.peer}.`;
+        hostid = document.getElementById('hostId')
+        if(hostid)
+            hostid.innerText = `CONNECTED TO ${hostConnection.peer}.`;
+        hide(document.getElementById("join"))
     });
 
     hostConnection.on('data', (data) => {
         console.log('Recvied data:\n', data);
-
-        handleData(data, hostConnection)
+        console.log('Received connection:\n', hostConnection);
+        handleData(data, hostConnection);
 
         updatePeerList(data.peers);
     });
@@ -113,23 +119,22 @@ const join = () => {
 // HANDLERS
 
 const onConnection = (connection, handler) => {
-    console.log(
-        `${connection.peer} attempting to establish connection.`,
-    );
-    console.log("peer", connection.peer);
-    console.log("connection", connection);
+    console.log("peer", connection);
     
-    connection.on('open', onOpenConnection(connection, handler));
+    connection.on('open', (handler)=>{onOpenConnection(connection, handler)});
 
-    connection.on('data', onDataReceived(data, connection));
+    connection.on('data', (data)=>{onDataReceived(data, connection)});
 
-    connection.on('close', onClose());
+    connection.on('close', ()=>{onClose(connection)});
 }
 const onDataReceived = (data, connection) => {
     console.log('Recvied data:\n', data);
+    console.log('Recived peer:\n', connection.peer);
+    data.connection.peer = connection.peer;
     handleData(data, connection);
     broadcast({
         ...data,
+        ...connection.peer,
         peers: generatePeerList(),
     });
 }
@@ -144,16 +149,16 @@ const onOpenConnection = (connection, handler) => {
     );
 
     const data = {
-        sender: 'SYSTEM',
-        message: `${connection.peer} joined.`,
-        type: 'message'
+        type: 'system-join',
+        peer: connection.peer
     };
 
     updatePeerList();
-    handleData(data. connection);
+    handleData(data, connection);
 
     broadcast({
         ...data,
+        ...connection.peer,
         peers: generatePeerList(),
     });
     if (handler) {
@@ -176,35 +181,31 @@ const onCall = (call) => {
 }
 const onDisconnect = () => {
         console.log('Disconnected from signaller.');
-        document.getElementById(
-            'signallerBtn',
-        ).innerText = `✘ DISCONNECTED FROM SIGNALLER. RECONNECT?`;
-        document.getElementById('signallerBtn').disabled = false;
+        if(signallerButton){
+            signallerButton.innerText = `✘ DISCONNECTED FROM SIGNALLER. RECONNECT?`;
+            signallerButton.disabled = false;
+        }
 }
 const onOpen = (id) => {
     console.log('Connection to signaller establised.');
     console.log(`Assigning id: ${id}`);
-    var button =   document.getElementById(
-        'signallerBtn',
-    )
-    if (button) {
-        button.innerText = `✔ CONNECTED TO SIGNALLER`;
-        button.disabled = true;
+    if (signallerButton) {
+        signallerButton.innerText = `✔ CONNECTED TO SIGNALLER`;
+        signallerButton.disabled = true;
         document.getElementById('selfId').innerText =
-            'YOUR ID IS ' + id;    
+            'YOUR ID IS ' + id;
     }
     updatePeerList();
 }
-const onClose = () => {
+const onClose = (connection) => {
     console.log(`Connection to ${connection.peer} is closed.`);
     clientConnections = clientConnections.delete(
         connection.peer.toString(),
     );
 
     const data = {
-        sender: 'SYSTEM',
-        message: `${connection.peer} left.`,
-        type: 'message'
+        type: 'system-left',
+        peer: connection.peer
     };
 
     updatePeerList();
