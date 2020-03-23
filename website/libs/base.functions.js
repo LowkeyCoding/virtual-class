@@ -130,7 +130,7 @@ const onConnection = (connection, handler) => {
 const onDataReceived = (data, connection) => {
     console.log('Recvied data:\n', data);
     console.log('Recived peer:\n', connection.peer);
-    data.connection.peer = connection.peer;
+    data.peer = connection.peer;
     handleData(data, connection);
     broadcast({
         ...data,
@@ -223,6 +223,7 @@ var clientConnections = Immutable.Map({});
 var hostConnection;
 
 const peerId = randomDigits(6);
+
 const peer = new Peer(peerId, {
     host: 'kfwong-server.herokuapp.com',
     port: 443,
