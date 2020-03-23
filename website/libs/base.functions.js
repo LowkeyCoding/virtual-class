@@ -10,6 +10,10 @@ const updatePeerList = (peerList) => {
         : generatePeerList();
 }
 
+const updateRoom = (data) => {
+    document.getElementById("class-name").innerHTML = data.message.room.name;
+}
+
 const generatePeerList = () => {
     return clientConnections
         .map((connection) => connection.peer)
@@ -46,21 +50,6 @@ const send = (message, type) => {
     document.getElementById('message').innerText = '';
 }
 
-const handleData = (data) => {
-    console.log("data:",data)
-    if (!data){
-        console.log("No data")
-    } else if (data.type  == "message"){
-        updateMessageBoard(data.peer, data.message);
-    } else if (data.type == "system-join") {
-        updateMessageBoard("SYSTEM", `${data.peer} joined.`);
-    } else if (data.type == "system-left") {
-        updateMessageBoard("SYSTEM", `${data.peer} left.`);
-    }else if (data.type == "room update" && data.peer == hostConnection.peer ) {
-        updateMessageBoard("SYSTEM", `${data.peer} changed room x`);
-        updateRoom(data)
-    }
-}
 
 const clear = () => {
     document.getElementById('message').innerText = '';
@@ -215,6 +204,30 @@ const onClose = (connection) => {
         ...data,
         peers: generatePeerList(),
     });
+}
+const onRoomStateChanged = () => {
+    var data = {
+        room: {
+                name: document.getElementById("class-name").innerHTML
+            }
+        }
+    send(data, "room-state-changed")
+    console.log("room-state-changed")
+}
+
+const handleData = (data) => {
+    console.log("data:",data)
+    if (!data){
+        console.log("No data")
+    } else if (data.type  == "message"){
+        updateMessageBoard(data.peer, data.message);
+    } else if (data.type == "system-join") {
+        updateMessageBoard("SYSTEM", `${data.peer} joined.`);
+    } else if (data.type == "system-left") {
+        updateMessageBoard("SYSTEM", `${data.peer} left.`);
+    }else if (data.type == "room-state-changed" && data.peer == hostConnection.peer ) {
+        updateRoom(data)
+    }
 }
 
 // BASE DATA
