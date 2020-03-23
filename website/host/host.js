@@ -48,11 +48,11 @@ const stopCapture = () => {
 }
 
 
-peer.on('open', onOpen(id));
+peer.on('open', (id)=>{onOpen(id)});
 
-peer.on('connection', onConnection(connection, hostHandler()));
+peer.on('connection', (connection)=>{onConnection(connection, hostHandler())});
 
-peer.on('disconnected', () => onDisconnect());
+peer.on('disconnected', ()=>{onDisconnect()});
 
 peer.on('error', (error) => {
     console.log(error);

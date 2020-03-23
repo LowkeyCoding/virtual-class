@@ -184,16 +184,15 @@ const onDisconnect = () => {
 const onOpen = (id) => {
     console.log('Connection to signaller establised.');
     console.log(`Assigning id: ${id}`);
-
-    document.getElementById(
+    var button =   document.getElementById(
         'signallerBtn',
-    ).innerText = `✔ CONNECTED TO SIGNALLER`;
-
-    document.getElementById('signallerBtn').disabled = true;
-
-    document.getElementById('selfId').innerText =
-        'YOUR ID IS ' + id;
-
+    )
+    if (button) {
+        button.innerText = `✔ CONNECTED TO SIGNALLER`;
+        button.disabled = true;
+        document.getElementById('selfId').innerText =
+            'YOUR ID IS ' + id;    
+    }
     updatePeerList();
 }
 const onClose = () => {
