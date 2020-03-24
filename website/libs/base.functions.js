@@ -44,7 +44,8 @@ const send = (message, type) => {
     if (!clientConnections.isEmpty()) {
         data.peer = peerId;
         broadcast(data);
-        updateMessageBoard(data.peer, data.message);
+        if(data.type != 'room-state-changed')
+            updateMessageBoard(data.peer, data.message);
     }
 
     document.getElementById('message').innerText = '';
