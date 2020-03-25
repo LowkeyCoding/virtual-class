@@ -30,11 +30,8 @@ const send = (message, type) => {
         peer: null,
         type: type
     };
-
     // If connected to host
     if (hostConnection) {
-        //
-        console.log('SSS' + JSON.stringify(data));
         // Send data
         hostConnection.send(data);
     }
