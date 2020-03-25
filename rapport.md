@@ -35,7 +35,7 @@ Læren/webRTC hosten har specielle priviliger der gør at det kun er hosten der 
 Programmet indeholder 2 layouts. En forside hvor man kan vælge at deltage i eller starte en stream, og den side hvor en stream kan ses. Layout 2 ændrer sig lidt alt afhængigt af om man er host eller seer.
 
 ## Dokumentation
-
+VClass benytter WebRTC til at oprette en peer-to-peer streaming session.
 
 ## Udvikling
 
