@@ -1,3 +1,18 @@
+// BASE DATA
+var clientConnections = Immutable.Map({});
+
+var hostConnection;
+const params = getParams(window.location.href);
+const peerId = params.peerId || randomDigits(6);
+document.getElementById("class-name").innerHTML = params.roomName || "stream";
+
+const peer = new Peer(peerId, {
+    host: 'kfwong-server.herokuapp.com',
+    port: 443,
+    path: '/myapp',
+    secure: true,
+});
+
 const streamElement = document.getElementById("stream");
 const message = document.getElementById('message');
 const signallerButton = document.getElementById("signallerBtn");
@@ -7,7 +22,8 @@ const stopElement = document.getElementById("stop");
 
 var displayMediaOptions = {
     video: {
-        cursor: "always"
+        cursor: "always",
+        frameRate: 144
     },
     audio: true
 };
@@ -19,7 +35,7 @@ stopElement.addEventListener("click", function() {
     stopCapture();
 }, false);
 
-const boardcast_stream = (stream, peerID) => {
+const broadcast_stream = (stream, peerID) => {
     if(peerID){
         console.log("single stream")
         peer.call(peerID, stream)
@@ -31,21 +47,20 @@ const boardcast_stream = (stream, peerID) => {
     }
 }
 
-const startCapture = () => {
+const startCapture = async () => {
     try {
-      navigator.mediaDevices.getDisplayMedia(displayMediaOptions).then(stream => {
-        streamElement.srcObject = stream;
-        window.Stream = stream;
-        console.log("stream", stream)
-        boardcast_stream(stream, null)
-      })
+        window.Stream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+        audio = await (await navigator.mediaDevices.getUserMedia({ audio: true, video: false })).getAudioTracks()[0];
+        window.Stream.addTrack(audio);
+        streamElement.srcObject = window.Stream;
+        broadcast_stream(window.Stream, null);
     } catch(err) {
-      console.error("Error: " + err);
+        console.error("Error: " + err);
     }
 }
 const stopCapture = () => {
     let tracks = streamElement.srcObject.getTracks();
-
+    window.Stream = false;
     tracks.forEach(track => track.stop());
     streamElement.srcObject = null;
 }
@@ -53,7 +68,7 @@ const stopCapture = () => {
 
 peer.on('open', (id)=>{onOpen(id)});
 
-peer.on('connection', (connection)=>{onConnection(connection, hostHandler())});
+peer.on('connection', (connection)=>{onConnection(connection, hostHandler(connection))});
 
 peer.on('disconnected', ()=>{onDisconnect()});
 

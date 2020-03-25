@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Sen", sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0px;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+hr {
+  width: 100%;
+}
+
+input[type=text] {
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 8px 16px;
+}
+
+.button {
+  width: 100%;
+  max-width: 256px;
+  height: 48px;
+  background-color: #1fbec4;
+  border-radius: 8px;
+}
+.button p {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 48px;
+  font-size: 24px;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.button:hover {
+  background-color: #2a4c8b;
+  border-radius: 16px;
+  transition: all 0.16s;
+}
+
+img.circular {
+  border-radius: 50%;
+}
+
+.shadow {
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+}
+
+#app {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#setup {
+  width: 512px;
+  height: 512px;
+}
+#setup .setup-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  border-radius: 8px;
+}
+
+#useroverlay {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+/*# sourceMappingURL=base-styles.css.map */
