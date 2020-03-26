@@ -11,13 +11,13 @@
 <body>
     <div id="app">
         <div id="useroverlay">
-            Welcome name with icon
+            Welcome <a id="name" name="username">name</a> with the icon <img src="" name="icon" class="circular" height="32" width="32" placeholder="icon" style="-ms-transform: translateY(40%); transform: translateY(40%);">
         </div>
 
         <div id="setup" class="centered shadow container">
             <div id="setup-user" class="setup-container">
                 <div><h2>Setup Account</h2></div>
-                <div><img id="icon" class="circular" height="128" width="128" onclick="changeColor()"></div>
+                <div><img id="icon" name="icon" class="circular" height="128" width="128" onclick="changeColor()"></div>
                 <div class="textField"><p>Icon URL:</p>   <input id="iconurl" type="text" onchange="onIconUrlChange()"></input></div>
                 <div class="textField"><p>Username:</p>   <input id="username" type="text" placeholder="Username" onchange="onUsernameChange()"></input></div>
                 <div class="button" onclick="ToggleContainer()"><p>Confirm</p></div>
@@ -58,6 +58,7 @@
         //
         function onUsernameChange(){
             username = document.getElementById("username").value;
+            document.getElementById("name").innerHTML = username;
             updateIcon();
             Validate();
         }
@@ -67,9 +68,13 @@
             if(iconURL.length == 0){
                 var letter = "?";
                 if(username.length > 0){letter = username[0].toUpperCase();}
-                document.getElementById("icon").src = "https://via.placeholder.com/128/" + iconColor +"/ffffff/?text=" + letter;
+                document.getElementsByName("icon").forEach((element)=>{
+                    element.src = "https://via.placeholder.com/128/" + iconColor +"/ffffff/?text=" + letter;
+                })
             }else{
-                document.getElementById("icon").src = iconURL;
+                document.getElementsByName("icon").forEach((element)=>{
+                    element.src = iconURL;
+                })
             }
         }
 
@@ -105,11 +110,26 @@
             console.log(username);
             return await username;
         }
+        const importSteamUser = async (steamid) => {
+            let request = new XMLHttpRequest();
+            request.open('GET', "https://cors.walsted.dev/https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&steamids=" + steamid);
+            let username;
+            request.onload = async () => {
+                player = await JSON.parse(request.response).response.players[0];
+                document.getElementById("name").innerHTML = player.personaname;
+                document.getElementById("username").value = player.personaname;
+                iconURL = player.avatarfull;
+                updateIcon();
+            };
+            request.send();
+        }
+        
         // Sets the username
         getRandomName();
         changeColor();
         (setup = () => {
             username = document.getElementById("username").value;
+            document.getElementById("name").innerHTML = username;
             // Joins the selected host if the peer has been created
             if (username != "") {
                 updateIcon();
