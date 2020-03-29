@@ -15,7 +15,7 @@ vclass.setup();
 (setup = () => {
     // Joins the selected host if the peer has been created
     if (vclass._open == true) {
-        vclass.join();
+        vclass.joinHost();
         return;
     }
     setTimeout(setup, 50);

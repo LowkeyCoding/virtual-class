@@ -10,6 +10,7 @@ class VirtualClass extends Peer{
         this.peerType = peerType;
         this.stream;
     }
+    // Sets up the peer
     setupPeer () {
         this.on('open', (id)=>{this.onConnectToSignaller(id)});
 
@@ -24,7 +25,7 @@ class VirtualClass extends Peer{
             window.Perror = error;
         });
     }
-    
+    // Sets up the peer and handlers
     setup() {
         this.setupHandlers();
         this.setupPeer();
