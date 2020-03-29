@@ -88,7 +88,6 @@ const join = () => {
 // ---- HANDLERS ----
 // onConnection sets up the handlers on open, close and data events and passes the nessecary data to the handlers.
 const onConnection = (connection, handler) => {
-    console.log("peer", connection);
     
     connection.on('open', (handler)=>{onOpenConnection(connection, handler)});
 
@@ -98,8 +97,6 @@ const onConnection = (connection, handler) => {
 }
 // onDataReceived handles the data
 const onDataReceived = (data, connection) => {
-    console.log('Recvied data:\n', data);
-    console.log('Recived peer:\n', connection.peer);
     data.peer = connection.peer;
     handleData(data, connection);
     broadcast({
@@ -138,10 +135,8 @@ const onOpenConnection = (connection, handler) => {
 }
 // onCall is called when the host connection is establishing a new live stream.
 const onCall = (call) => {
-    console.log("call", call)
     call.answer();
     call.on('stream', (remoteStream) => {
-        console.log("rstream". remoteStream)
         streamElement.srcObject = remoteStream
     });
 }
