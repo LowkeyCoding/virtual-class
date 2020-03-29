@@ -1,3 +1,242 @@
+class VirtualClass extends Peer{
+    constructor(peerType, signallerParams, userParams) {
+        let peerId = userParams.peerId || randomDigits(6);
+        super(peerId, signallerParams);
+        this.clientConnections = Immutable.Map({});
+        this.peerId = peerId;
+        this.hostId = userParams.hostId || null;
+        this.roomName = userParams.roomName || "stream"
+        this.hostConnection;
+        this.peerType = peerType;
+        this.stream;
+    }
+    setupPeer () {
+        this.on('open', (id)=>{this.onConnectToSignaller(id)});
+
+        this.on('connection', (connection)=>{this.onConnection(connection)});
+
+        this.on('call', (call)=>{this.onCall(call)});
+
+        this.on('disconnected', ()=>{this.onDisconnectFromSignaller()});
+
+        this.on('error', (error) => {
+            console.log(error);
+            window.Perror = error;
+        });
+    }
+    
+    setup() {
+        this.setupHandlers();
+        this.setupPeer();
+    }
+    // Setsup all the connection handlers
+    setupHandlers () {
+        this.onConnectToSignaller = (id) => {
+            console.log('Connection to signaller establised.');
+            console.log(`Assigning id: ${id}`);
+            if (signallerButton) {
+                signallerButton.innerText = `✔ CONNECTED TO SIGNALLER`;
+                signallerButton.disabled = true;
+                document.getElementById('selfId').innerText =
+                    'YOUR ID IS ' + id;
+            }
+            this.updatePeerList();
+        }
+        // Handels if the host or peer is disconnected from the signaling server.
+        this.onDisconnectFromSignaller = () => {
+            console.log('Disconnected from signaller.');
+            if(signallerButton){
+                signallerButton.innerText = `✘ DISCONNECTED FROM SIGNALLER. RECONNECT?`;
+                signallerButton.disabled = false;
+            }
+        }
+        // Handels when a peer recives a call from the host.
+        this.onCall = (call) => {
+            call.answer();
+            call.on('stream', (remoteStream) => {
+                streamElement.srcObject = remoteStream
+            });
+        }
+        // Handels when the host recives a connection.
+        this.onConnection = (connection) => {
+            if (this.peerType == 'host'){
+                connection.on('open', ()=>{this.onPeerConnected(connection, hostHandler)});
+            } else {
+                connection.on('open', ()=>{this.onPeerConnected(connection, null)});
+            }
+    
+            connection.on('data', (data)=>{this.onData(data, connection)});
+        
+            connection.on('close', ()=>{this.onPeerDisconnected(connection)});
+        }
+            // Handles when a peer connects to the host.
+            this.onPeerConnected = (connection) => {
+                console.log(
+                    `Connection to ${connection.peer} established.`,
+                );
+            
+                this.clientConnections = this.clientConnections.set(
+                    connection.peer,
+                    connection,
+                );
+            
+                const data = {
+                    type: 'user-joined',
+                    peer: connection.peer
+                };
+            
+                this.updatePeerList();
+                this.handleData(data, connection);
+                this.broadcast({
+                    ...data,
+                    ...connection.peer,
+                    peers: this.updatePeerList(),
+                });
+                this.onRoomStateChanged();
+                if (this.peerType == 'host') {
+                    if (this.stream) {
+                        this.broadcast_stream(this.stream, connection.peer);
+                    }
+                }
+            }
+            // Handels when a peer disconnects from the host.
+            this.onPeerDisconnected = (connection) => {
+                console.log(`Connection to ${connection.peer} is closed.`);
+                this.clientConnections = this.clientConnections.delete(connection.peer.toString());
+            
+                const data = {
+                    type: 'user-left',
+                    peer: connection.peer
+                };
+            
+                this.updatePeerList();
+                this.handleData(data, connection);
+            
+                this.broadcast({
+                    ...data,
+                    peers: this.updatePeerList(),
+                });
+            }
+            // Handels when the host receives data.
+            this.onData = (data, connection) => {
+                data.peer = connection.peer;
+                this.handleData(data, connection);
+                this.broadcast({
+                    ...data,
+                    ...connection.peer,
+                    peers: this.updatePeerList(),
+                });
+            }
+        // Handels when ever the peer or host gets a error.
+        this.onError = (error) => {
+            console.log(error);
+        }
+        // Helper handlers
+            // Boardcasts a stream to either 1 or all connected peers depending on wether peerId is set.
+            this.broadcast_stream = (peerID) => {
+                if(peerID){
+                    console.log(peerID);
+                    this.call(peerID, this.stream);
+                } else {
+                    this.clientConnections.forEach((connection) => {
+                        console.log(connection.peer);
+                        this.call(connection.peer, this.stream)
+                    });
+                }
+            }
+            // Boardcasts data to all the connected peers.
+            this.broadcast = (data) => {
+                this.clientConnections.forEach((connection) =>
+                    connection.send(data)
+                );
+            }
+            // Handels the way data is visualized from both the peers and the host.
+            this.handleData = (data) => {
+                if (!data){
+                } else if (data.type  == "message"){
+                    updateMessageBoard(data.peer, data.message);
+                } else if (data.type == "user-joined") {
+                    updateMessageBoard("SYSTEM", `${data.peer} joined.`);
+                } else if (data.type == "user-left") {
+                    updateMessageBoard("SYSTEM", `${data.peer} left.`);
+                } else if (data.type == "room-state-changed" && data.peer == this.hostConnection.peer ) {
+                    updateRoom(data)
+                }
+            }
+            this.onRoomStateChanged = () => {
+                var room = {
+                    room: {
+                        name: document.getElementById("class-name").innerHTML
+                    },
+                    type: 'room-state-changed',
+                    peer: this.peerId
+                }
+                this.broadcast(room)
+            }
+    }
+    // Updates the list of peers in the room.
+    updatePeerList () {
+        return this.clientConnections
+            .map((connection) => connection.peer)
+            .toList()
+            .push(`${this.peerId} (HOST)`)
+            .join(', ');
+    }
+    // Use the signaling server to connect to a host.
+    joinHost () {
+        console.log("joinning")
+        this.hostConnection = peer.connect(hostId);
+    
+        this.hostConnection.on('open', () => {
+            console.log(
+                `Connection to ${this.hostConnection.peer} established.`,
+            );
+            hostid = document.getElementById('hostId')
+            if(hostid)
+                hostid.innerText = `CONNECTED TO ${this.hostConnection.peer}.`;
+        });
+    
+        this.hostConnection.on('data', (data) => {
+            this.handleData(data, this.hostConnection);
+            this.updatePeerList(data.peers);
+        });
+    
+        this.hostConnection.on('close', () => {
+            console.log(
+                `Connection to ${this.hostConnection.peer} is closed.`,
+            );
+    
+            peer.destroy();
+    
+            location.reload();
+        });
+    }
+    // Sends a message to either the host or all connected peers.
+    sendMessage(message) {
+        // Define data to send
+        const data = {
+            message: message,
+            peer: null,
+            type: 'message'
+        };
+        // If connected to host
+        if (this.hostConnection) {
+            // Send data
+            this.hostConnection.send(data);
+        }
+    
+        // host send
+        if (!this.clientConnections.isEmpty()) {
+            data.peer = this.peerId;
+            this.broadcast(data);
+            if(data.type != 'room-state-changed')
+                updateMessageBoard(data.peer, data.message);
+        }
+    
+        document.getElementById('message').innerText = '';
+    }
+}
+
 // Add text to messageBoard Element
 const updateMessageBoard = (connection, message) => {
     document.getElementById(
@@ -8,44 +247,6 @@ const updateMessageBoard = (connection, message) => {
 const updateRoom = (data) => {
     document.getElementById("class-name").innerHTML = data.room.name;
 }
-// Updates the list of peers in the room.
-const updatePeerList = () => {
-    return clientConnections
-        .map((connection) => connection.peer)
-        .toList()
-        .push(`${peerId} (HOST)`)
-        .join(', ');
-}
-// Broadcast a messsage to all connected peers.
-const broadcast = (data) => {
-    clientConnections.forEach((connection) =>
-        connection.send(data),
-    );
-}
-// Sends a message to either the host or all connected peers.
-const send = (message, type) => {
-    // Define data to send
-    const data = {
-        message: message,
-        peer: null,
-        type: type
-    };
-    // If connected to host
-    if (hostConnection) {
-        // Send data
-        hostConnection.send(data);
-    }
-
-    // host send
-    if (!clientConnections.isEmpty()) {
-        data.peer = peerId;
-        broadcast(data);
-        if(data.type != 'room-state-changed')
-            updateMessageBoard(data.peer, data.message);
-    }
-
-    document.getElementById('message').innerText = '';
-}
 // Reconnects to the signalling server.
 const reconnect = () => {
     console.log(`Reconnecting to signaller.`);
@@ -55,166 +256,8 @@ const reconnect = () => {
     }
     peer.reconnect();
 }
-// Use the signaling server to connect to a host.
-const join = () => {
-    console.log("joinning")
-    hostConnection = peer.connect(hostId);
-
-    hostConnection.on('open', () => {
-        console.log(
-            `Connection to ${hostConnection.peer} established.`,
-        );
-        hostid = document.getElementById('hostId')
-        if(hostid)
-            hostid.innerText = `CONNECTED TO ${hostConnection.peer}.`;
-    });
-
-    hostConnection.on('data', (data) => {
-        handleData(data, hostConnection);
-        updatePeerList(data.peers);
-    });
-
-    hostConnection.on('close', () => {
-        console.log(
-            `Connection to ${hostConnection.peer} is closed.`,
-        );
-
-        peer.destroy();
-
-        location.reload();
-    });
-}
-
-// ---- HANDLERS ----
-// onConnection sets up the handlers on open, close and data events and passes the nessecary data to the handlers.
-const onConnection = (connection, handler) => {
-    
-    connection.on('open', (handler)=>{onOpenConnection(connection, handler)});
-
-    connection.on('data', (data)=>{onDataReceived(data, connection)});
-
-    connection.on('close', ()=>{onClose(connection)});
-}
-// onDataReceived handles the data
-const onDataReceived = (data, connection) => {
-    data.peer = connection.peer;
-    handleData(data, connection);
-    broadcast({
-        ...data,
-        ...connection.peer,
-        peers: updatePeerList(),
-    });
-}
-// onOpenConnection handles when a peer joins
-const onOpenConnection = (connection, handler) => {
-    console.log(
-        `Connection to ${connection.peer} established.`,
-    );
-
-    clientConnections = clientConnections.set(
-        connection.peer,
-        connection,
-    );
-
-    const data = {
-        type: 'user-joined',
-        peer: connection.peer
-    };
-
-    updatePeerList();
-    handleData(data, connection);
-    broadcast({
-        ...data,
-        ...connection.peer,
-        peers: updatePeerList(),
-    });
-    onRoomStateChanged();
-    if (handler) {
-        handler();
-    }
-}
-// onCall is called when the host connection is establishing a new live stream.
-const onCall = (call) => {
-    call.answer();
-    call.on('stream', (remoteStream) => {
-        streamElement.srcObject = remoteStream
-    });
-}
-// onDisconnect handles when the user is disconnected from the signaling server.
-const onDisconnect = () => {
-        console.log('Disconnected from signaller.');
-        if(signallerButton){
-            signallerButton.innerText = `✘ DISCONNECTED FROM SIGNALLER. RECONNECT?`;
-            signallerButton.disabled = false;
-        }
-}
-// onOpen handles when the user is connecting to the signalling server.
-const onOpen = (id) => {
-    console.log('Connection to signaller establised.');
-    console.log(`Assigning id: ${id}`);
-    if (signallerButton) {
-        signallerButton.innerText = `✔ CONNECTED TO SIGNALLER`;
-        signallerButton.disabled = true;
-        document.getElementById('selfId').innerText =
-            'YOUR ID IS ' + id;
-    }
-    updatePeerList();
-}
-// onClose handles when teh user is disconnecting from the host.
-const onClose = (connection) => {
-    console.log(`Connection to ${connection.peer} is closed.`);
-    clientConnections = clientConnections.delete(connection.peer.toString());
-
-    const data = {
-        type: 'user-left',
-        peer: connection.peer
-    };
-
-    updatePeerList();
-    handleData(data, connection);
-
-    broadcast({
-        ...data,
-        peers: updatePeerList(),
-    });
-}
-// onRoomStateChanged
-const onRoomStateChanged = () => {
-    var room = {
-        room: {
-            name: document.getElementById("class-name").innerHTML
-        },
-        type: 'room-state-changed',
-        peer: peerId
-    }
-    broadcast(room)
-}
-
-// hostHandler handels when the host is starting a livestream.
-const hostHandler = (connection) => {
-    if (window.Stream) {
-        broadcast_stream(window.Stream, connection.peer);
-    }
-}
-
-// Handle received data
-const handleData = (data) => {
-    console.log("data:",data)
-    if (!data){
-        console.log("No data")
-    } else if (data.type  == "message"){
-        updateMessageBoard(data.peer, data.message);
-    } else if (data.type == "user-joined") {
-        updateMessageBoard("SYSTEM", `${data.peer} joined.`);
-    } else if (data.type == "user-left") {
-        updateMessageBoard("SYSTEM", `${data.peer} left.`);
-    } else if (data.type == "room-state-changed" && data.peer == hostConnection.peer ) {
-        updateRoom(data)
-    }
-}
 
 // ---- Helper Functions -----
-
 const hide = (element) => {
     element.classList.add('hidden');
 }

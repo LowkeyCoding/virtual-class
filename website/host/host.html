@@ -32,7 +32,7 @@
             >
             </code>
             <div class="content">
-                <h4 id="class-name" contenteditable="true" onfocusout="onRoomStateChanged()">Class Name(Click to edit)</h4>
+                <h4 id="class-name" contenteditable="true" onfocusout="vclass.onRoomStateChanged()">Class Name(Click to edit)</h4>
                 <p><button id="start">Start Capture</button>&nbsp;<button id="stop">Stop Capture</button></p>
                 <video id="stream" controls autoplay></video>
                 <h4>MESSAGE BOARD</h4>
@@ -48,7 +48,7 @@
                     placeholder="Write some jokes here..."
                     autocomplete="off"
                 />
-                <button class="full-width" onclick="send(message.value, 'message')">
+                <button class="full-width" onclick="vclass.sendMessage(message.value)">
                     SEND
                 </button>
             </div>

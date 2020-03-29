@@ -12,14 +12,17 @@ function changeColor (){
 function onIconUrlChange (){
     iconURL =  document.getElementById("iconurl").value;
     updateIcon();
-    Validate();
+    validateUsername();
 }
 //
 function onUsernameChange(){
-    username = document.getElementById("username").value;
-    document.getElementById("name").innerHTML = username;
-    updateIcon();
-    Validate();
+    if (validateUsername()){
+        username = document.getElementById("username").value;
+        document.getElementById("name").innerHTML = username;
+        updateIcon();
+        return;
+    }
+    document.getElementById("username").value = username;
 }
 // Changes the icon
 function updateIcon(){
@@ -37,17 +40,25 @@ function updateIcon(){
     }
 }
 
-function Validate(){
-    if(username.length < 3)
-    {
-        document.getElementById("errorText").innerHTML = "Username must be at least 3 characters long.";
+const validateUsername = () => {
+    let _username = document.getElementById("username").value;
+    if(_username.length > 3){
+        if (_username.length < 32){
+            document.getElementById("errorText").innerHTML = "";
+            return true;
+        }
+        document.getElementById("errorText").innerHTML = "Username must be at less than 32 characters long.";
+        return false;
     }
+    document.getElementById("errorText").innerHTML = "Username must be at least 3 characters long.";
+    return false;
 }
 
 function ToggleContainer(){
-    document.getElementById("setup-user").style.display = "none";
-    document.getElementById("setup-room").style.display = "flex";
-    console.log("a");
+    if(validateUsername()) {
+        document.getElementById("setup-user").style.display = "none";
+        document.getElementById("setup-room").style.display = "flex";
+    }
 }
 
 function joinRoom() {
