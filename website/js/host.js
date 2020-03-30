@@ -1,8 +1,8 @@
 const params = getParams(window.location.href);
 const vclass = new VirtualClass("host", {
-    host: 'kfwong-server.herokuapp.com',
+    host: 'peerjs.walsted.dev',
     port: 443,
-    path: '/myapp',
+    path: '/p2p',
     secure: true,
 }, params);
 document.getElementById("class-name").innerHTML = vclass.roomName;

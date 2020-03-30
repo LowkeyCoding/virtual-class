@@ -60,11 +60,8 @@ class VirtualClass extends Peer{
         }
         // Handels when the host recives a connection.
         this.onConnection = (connection) => {
-            if (this.peerType == 'host'){
-                connection.on('open', ()=>{this.onPeerConnected(connection, hostHandler)});
-            } else {
-                connection.on('open', ()=>{this.onPeerConnected(connection, null)});
-            }
+
+            connection.on('open', ()=>{this.onPeerConnected(connection)});
     
             connection.on('data', (data)=>{this.onData(data, connection)});
         
@@ -96,6 +93,8 @@ class VirtualClass extends Peer{
                 this.onRoomStateChanged();
                 if (this.peerType == 'host') {
                     if (this.stream) {
+                        console.log("peer", connection.peer)
+                        console.log("stream", this.stream)
                         this.broadcast_stream(this.stream, connection.peer);
                     }
                 }
@@ -186,15 +185,12 @@ class VirtualClass extends Peer{
     // Use the signaling server to connect to a host.
     joinHost () {
         console.log("joinning")
-        this.hostConnection = peer.connect(hostId);
+        this.hostConnection = this.connect(this.hostId);
     
         this.hostConnection.on('open', () => {
             console.log(
                 `Connection to ${this.hostConnection.peer} established.`,
             );
-            hostid = document.getElementById('hostId')
-            if(hostid)
-                hostid.innerText = `CONNECTED TO ${this.hostConnection.peer}.`;
         });
     
         this.hostConnection.on('data', (data) => {
@@ -207,7 +203,7 @@ class VirtualClass extends Peer{
                 `Connection to ${this.hostConnection.peer} is closed.`,
             );
     
-            peer.destroy();
+            this.destroy();
     
             location.reload();
         });
