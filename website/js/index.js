@@ -62,11 +62,11 @@ function ToggleContainer(){
 }
 
 function joinRoom() {
-    location.href = '/client/client.html?peerId=' + username + "&hostId=" + document.getElementById("roomID").value; 
+    location.href = '/pages/client.html?peerId=' + username + "&hostId=" + document.getElementById("roomID").value; 
 }
 
 function createRoom() {
-    location.href = '/host/host.html?peerId=' + username; 
+    location.href = '/pages/host.html?peerId=' + username; 
 }
 const getRandomName = async () => {
     let request = new XMLHttpRequest();
