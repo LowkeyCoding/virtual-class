@@ -26,12 +26,15 @@ function onUsernameChange(){
 }
 // Changes the icon
 function updateIcon(){
+    console.log("update", username)
     // If user uses a custom icon
-    if(iconURL.length == 0){
+    if(document.getElementById("iconurl").value == ""){
         var letter = "?";
+        console.log("ul",username.length)
         if(username.length > 0){letter = username[0].toUpperCase();}
         document.getElementsByName("icon").forEach((element)=>{
             element.src = "https://via.placeholder.com/128/" + iconColor +"/ffffff/?text=" + letter;
+            iconURL = element.src;
         })
     }else{
         document.getElementsByName("icon").forEach((element)=>{
@@ -40,6 +43,7 @@ function updateIcon(){
     }
 }
 
+//
 const validateUsername = () => {
     let _username = document.getElementById("username").value;
     if(_username.length > 3){
@@ -54,20 +58,32 @@ const validateUsername = () => {
     return false;
 }
 
+//
 function ToggleContainer(){
     if(validateUsername()) {
         document.getElementById("setup-user").style.display = "none";
         document.getElementById("setup-room").style.display = "flex";
+        document.getElementById("useroverlay").style.display = "flex";
+        document.getElementById("roomName").value = username + "'s classroom"; 
     }
 }
 
-function joinRoom() {
-    location.href = '/pages/client.html?peerId=' + username + "&hostId=" + document.getElementById("roomID").value; 
+//
+const joinRoom = async () => {
+    location.href = '/pages/client.html?peerId=' +  await getPeerId() + "&hostId=" + document.getElementById("roomID").value + "&username=" + username + "&iconUrl=" + encodeURIComponent(iconURL); 
 }
 
-function createRoom() {
-    location.href = '/pages/host.html?peerId=' + username; 
+//
+const createRoom = async () => {
+    let request = new XMLHttpRequest();
+    request.open('GET', "https://peerjs.walsted.dev/p2p/peerjs/id");
+    request.onload = async () => {
+        location.href = '/pages/host.html?peerId=' +  await getPeerId() + "&roomName=" + document.getElementById("roomName").value + "&username=" + username + "&iconUrl=" + encodeURIComponent(iconURL);
+    };
+    request.send();
 }
+
+//
 const getRandomName = async () => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&format=text");
@@ -79,6 +95,7 @@ const getRandomName = async () => {
     request.send();
     return await username;
 }
+
 const importSteamUser = async (steamid) => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&steamids=" + steamid);
@@ -93,15 +110,19 @@ const importSteamUser = async (steamid) => {
     };
     request.send();
 }
+const getPeerId = async () => {
+    res = await fetch('https://peerjs.walsted.dev/p2p/peerjs/id');
+    return await res.text();
+}
 
 // Sets the username
 getRandomName();
-changeColor();
 (setup = () => {
     username = document.getElementById("username").value;
     document.getElementById("name").innerHTML = username;
     // Joins the selected host if the peer has been created
     if (username != "") {
+        console.log(username);
         updateIcon();
         return;
     }

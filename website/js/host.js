@@ -4,10 +4,21 @@ const vclass = new VirtualClass("host", {
     port: 443,
     path: '/p2p',
     secure: true,
+    debug:3,
+    config: {
+        'iceServers': [
+            { url: 'stun:stun.l.google.com:19302' },
+            {
+                url: 'turn:numb.viagenie.ca',
+                credential: 'muazkh',
+                username: 'webrtc@live.com'
+            }
+        ] 
+    }
 }, params);
 document.getElementById("class-name").innerHTML = vclass.roomName;
 vclass.setup();
-
+addPeer(vclass.peerId, vclass.username, vclass.iconUrl)
 const streamElement = document.getElementById("stream");
 const message = document.getElementById('message');
 const signallerButton = document.getElementById("signallerBtn");

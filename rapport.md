@@ -39,6 +39,7 @@ VClass benytter WebRTC til at oprette en peer-to-peer streaming session.
 
 ## Udvikling
 
+
 ### Idegenerering
 Vi starter med at finde et problem vi gerne vil løse.
 

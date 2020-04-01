@@ -1,0 +1,96 @@
+@import 'base-styles';
+
+#app{
+    flex-direction: row;
+    justify-content:space-between;
+
+    .panel{
+        display: flex;
+        flex-grow: 1;
+        height: 100%;
+        padding: 16px 16px;
+    }
+}
+
+#classroom{
+    
+    flex-direction: row;
+    justify-content: center;
+    
+
+    .content{
+        display:flex;
+        flex-grow: 1;
+        flex-direction:column;
+        
+        max-width: 1024px;
+        height: 100%;
+
+        video{
+            flex-grow: 1;
+            max-height:576px;
+        }
+        .row{
+            
+            margin-bottom: 16px;
+            .button{
+                margin: 0px 8px;
+                height: 24px;
+                width: 128px;
+                p{
+                    line-height: 24px;
+                    font-size: 16px;
+                }
+            }
+        }
+      
+    
+        #peerList{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+            overflow-x: hidden;
+            div{
+                width: 48px;
+                height: 48px;
+                margin: 8px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+#chat{
+    display:flex;
+    flex-direction:column;
+    align-items: stretch;
+    max-width: 384px;
+
+    
+
+    #messageBoard{
+        flex-grow: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 16px 0px;
+
+        .messageContainer{
+            display:flex;
+            .username{
+                color: $color-primary;
+            }
+        }
+    }
+
+    #messageBox{
+        max-width: none;
+    }
+    
+}

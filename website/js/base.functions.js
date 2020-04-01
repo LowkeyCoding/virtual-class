@@ -1,11 +1,19 @@
+// ---- Const -----
+const messageBox = document.getElementById("messageBox");
+const messageBoard = document.getElementById("messageBoard");
+const roomName = document.getElementById("class-name");
+const peerList = document.getElementById("peerList");
+// ---- P2P system -----
 class VirtualClass extends Peer{
     constructor(peerType, signallerParams, userParams) {
         let peerId = userParams.peerId || randomDigits(6);
         super(peerId, signallerParams);
         this.clientConnections = Immutable.Map({});
         this.peerId = peerId;
+        this.username = userParams.username || "Anonymous User";
+        this.iconUrl = userParams.iconUrl || "http://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
         this.hostId = userParams.hostId || null;
-        this.roomName = userParams.roomName || "stream"
+        this.roomName = userParams.roomName || "Classroom"
         this.hostConnection;
         this.peerType = peerType;
         this.stream;
@@ -35,13 +43,8 @@ class VirtualClass extends Peer{
         this.onConnectToSignaller = (id) => {
             console.log('Connection to signaller establised.');
             console.log(`Assigning id: ${id}`);
-            if (signallerButton) {
-                signallerButton.innerText = `✔ CONNECTED TO SIGNALLER`;
-                signallerButton.disabled = true;
-                document.getElementById('selfId').innerText =
-                    'YOUR ID IS ' + id;
-            }
-            this.updatePeerList();
+            document.getElementById('selfId').innerText = 'ID: "' + id + '"';
+            //this.updatePeerList();
         }
         // Handels if the host or peer is disconnected from the signaling server.
         this.onDisconnectFromSignaller = () => {
@@ -80,9 +83,31 @@ class VirtualClass extends Peer{
             
                 const data = {
                     type: 'user-joined',
-                    peer: connection.peer
+                    username: connection.label,
+                    icon: connection.metadata,
+                    peer: this.peerId
                 };
-            
+                // Send connected users icons and usernames to peerlist
+                this.clientConnections.forEach(peer => {
+                    const data = {
+                        type: 'connected-user',
+                        username: peer.label,
+                        icon: peer.metadata,
+                        peer: peer.peer
+                    }
+                    connection.send(data)
+                })
+                // send host icon and username
+                const hostData = {
+                    type: 'connected-user',
+                    username: this.username,
+                    icon: this.iconUrl,
+                    peer: this.peerId
+                }
+                connection.send(hostData)
+                
+                console.log("metadata", connection.metadata)
+                console.log("connection",connection)
                 this.updatePeerList();
                 this.handleData(data, connection);
                 this.broadcast({
@@ -93,9 +118,7 @@ class VirtualClass extends Peer{
                 this.onRoomStateChanged();
                 if (this.peerType == 'host') {
                     if (this.stream) {
-                        console.log("peer", connection.peer)
-                        console.log("stream", this.stream)
-                        this.broadcast_stream(this.stream, connection.peer);
+                        this.broadcast_stream(connection.peer);
                     }
                 }
             }
@@ -106,7 +129,8 @@ class VirtualClass extends Peer{
             
                 const data = {
                     type: 'user-left',
-                    peer: connection.peer
+                    peer: this.peerId,
+                    username: connection.label
                 };
             
                 this.updatePeerList();
@@ -120,6 +144,7 @@ class VirtualClass extends Peer{
             // Handels when the host receives data.
             this.onData = (data, connection) => {
                 data.peer = connection.peer;
+                data.username = connection.label;
                 this.handleData(data, connection);
                 this.broadcast({
                     ...data,
@@ -134,6 +159,7 @@ class VirtualClass extends Peer{
         // Helper handlers
             // Boardcasts a stream to either 1 or all connected peers depending on wether peerId is set.
             this.broadcast_stream = (peerID) => {
+                console.log("peerid", peerID);
                 if(peerID){
                     console.log(peerID);
                     this.call(peerID, this.stream);
@@ -154,19 +180,23 @@ class VirtualClass extends Peer{
             this.handleData = (data) => {
                 if (!data){
                 } else if (data.type  == "message"){
-                    updateMessageBoard(data.peer, data.message);
+                    updateMessageBoard(data.peer, data.username, data.message);
                 } else if (data.type == "user-joined") {
-                    updateMessageBoard("SYSTEM", `${data.peer} joined.`);
+                    updateMessageBoard(data.peer, "SYSTEM", `${data.username} joined.`);
+                    addPeer(data.peer, data.username, data.icon)
                 } else if (data.type == "user-left") {
-                    updateMessageBoard("SYSTEM", `${data.peer} left.`);
+                    updateMessageBoard(data.peer, "SYSTEM", `${data.username} left.`);
+                    removePeer(data.peer)
                 } else if (data.type == "room-state-changed" && data.peer == this.hostConnection.peer ) {
                     updateRoom(data)
+                } else if (data.type == "connected-user" && data.peer == this.hostConnection.peer ) {
+                    addPeer(data.peer, data.username, data.icon)
                 }
             }
             this.onRoomStateChanged = () => {
                 var room = {
                     room: {
-                        name: document.getElementById("class-name").innerHTML
+                        name: roomName.innerHTML
                     },
                     type: 'room-state-changed',
                     peer: this.peerId
@@ -185,7 +215,8 @@ class VirtualClass extends Peer{
     // Use the signaling server to connect to a host.
     joinHost () {
         console.log("joinning")
-        this.hostConnection = this.connect(this.hostId);
+        console.log("url", this.iconUrl)
+        this.hostConnection = this.connect(this.hostId, {label: this.username, metadata: encodeURI(this.iconUrl)});
     
         this.hostConnection.on('open', () => {
             console.log(
@@ -214,6 +245,7 @@ class VirtualClass extends Peer{
         const data = {
             message: message,
             peer: null,
+            username: null,
             type: 'message'
         };
         // If connected to host
@@ -225,25 +257,33 @@ class VirtualClass extends Peer{
         // host send
         if (!this.clientConnections.isEmpty()) {
             data.peer = this.peerId;
+            data.username = this.username;
             this.broadcast(data);
             if(data.type != 'room-state-changed')
-                updateMessageBoard(data.peer, data.message);
+                updateMessageBoard(data.peer, data.username, data.message);
         }
     
-        document.getElementById('message').innerText = '';
+        messageBox.innerText = '';
     }
 }
 
 // Add text to messageBoard Element
-const updateMessageBoard = (connection, message) => {
-    document.getElementById(
-        'messageBoard',
-    ).innerText += `[${connection}]: ${message}\n`;
+const updateMessageBoard = (peerid, username, message) => {
+    messageBoard.appendChild(messasgeTemplate(peerid, username, message));
 }
+
+const addPeer = (peerId, username, iconUrl) => {
+    peerList.appendChild(peerTemplate(peerId, username, iconUrl))
+}
+const removePeer = (peerId) => {
+    peerList.removeChild(document.getElementById(peerId));
+}
+
 // Update room name
 const updateRoom = (data) => {
-    document.getElementById("class-name").innerHTML = data.room.name;
+    roomName.innerHTML = data.room.name;
 }
+
 // Reconnects to the signalling server.
 const reconnect = () => {
     console.log(`Reconnecting to signaller.`);
@@ -279,3 +319,61 @@ const getParams = (url) => {
 	}
 	return params;
 };
+
+const getPeerId = async () => {
+    res = await fetch('https://peerjs.walsted.dev/p2p/peerjs/id');
+    return await res.text();
+}
+const getRandomName = async () => {
+    res = await fetch("https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&format=text");
+    return await res.text();
+}
+// ---- Event Listeners -----
+
+messageBox.addEventListener("keyup", (event) => {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // DO STUFF
+        vclass.sendMessage(document.getElementById("messageBox").value);
+        document.getElementById("messageBox").value = "";
+    }
+  });
+
+// ---- Templates -----
+const messasgeTemplate = (peerId, username, message) => {
+    // Username Element
+    usernameElement = document.createElement("p")
+    usernameElement.className = "username"
+    if (username == "SYSTEM") {
+        if (peerId == vclass.hostId) {
+            usernameElement.style.color = "#d4af37"
+        } else if (!vclass.hostId) {
+            usernameElement.style.color = "#d4af37"
+        }
+    }
+    usernameElement.innerHTML = "[" +username+"]:";
+    // Message Element
+    messageElement = document.createElement("p")
+    messageElement.className = "message"
+    messageElement.innerHTML = message;
+    // Container Element
+    containerElement = document.createElement("div")
+    containerElement.className = "messageContainer";
+    containerElement.appendChild(usernameElement);
+    containerElement.appendChild(messageElement);
+    return containerElement;
+}
+const peerTemplate = (peerId, username, iconURL) => {
+    // icon Element
+    iconElement = document.createElement("img")
+    iconElement.className = "icon"
+    iconElement.src = encodeURI(iconURL);
+    // Container Element
+    containerElement = document.createElement("div")
+    containerElement.id = peerId;
+    containerElement.title = username;
+    containerElement.appendChild(iconElement);
+    return containerElement;
+}

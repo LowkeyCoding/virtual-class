@@ -6,33 +6,39 @@
     <title>VClass</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/css/base-styles.min.css">
+
+    <link rel="stylesheet" href="/styles/css/index-styles.css">
+
 </head>
 <body>
     <div id="app">
-        <div id="useroverlay">
-            Welcome <a id="name" name="username">name</a> with the icon <img src="" name="icon" class="circular" height="32" width="32" placeholder="icon" style="-ms-transform: translateY(40%); transform: translateY(40%);">
+        <div id="useroverlay" class="shadow rounded" style="display:none">
+            <p>
+                Welcome<a id="name" name="username">name</a>
+                <img src="" name="icon" class="circular" height="32" width="32" placeholder="icon">
+            </p>
         </div>
 
-        <div id="setup" class="centered shadow container">
+        <div id="setup" class="centered shadow container rounded">
             <div id="setup-user" class="setup-container">
                 <div><h2>Setup Account</h2></div>
                 <div><img id="icon" name="icon" class="circular" height="128" width="128" onclick="changeColor()"></div>
+                <div class="textField"><p>Username<a class="red">*</a>:</p>   <input id="username" type="text" placeholder="Username" onchange="onUsernameChange()"></input></div>
                 <div class="textField"><p>Icon URL:</p>   <input id="iconurl" type="text" onchange="onIconUrlChange()"></input></div>
-                <div class="textField"><p>Username:</p>   <input id="username" type="text" placeholder="Username" onchange="onUsernameChange()"></input></div>
                 <div class="button" onclick="ToggleContainer()"><p>Confirm</p></div>
                 <div><p class="error" id="errorText"></p></div>
             </div>
             <div id="setup-room"  class="setup-container" style="display:none;">
                 <div><h2>Enter a Classroom</h2></div>
-                <div>
+                <div class="spreadContent">
                     <h3>Join Classroom</h3>
                     <div class="textField"><p>Room ID:</p>   <input id="roomID" type="text" placeholder="Room ID"></input></div>
                     <div class="button" onclick="joinRoom()"><p>Join</p></div>
                 </div>
                 <hr>
-                <div>
+                <div  class="spreadContent">
                     <h3>Create Classroom</h3>
+                    <div class="textField"><p>Room Name:</p>   <input id="roomName" type="text" placeholder="Room Name" value="Classroom"></input></div>
                     <div class="button" onclick="createRoom()"><p>Create</p></div>
                 </div>
             </div>
