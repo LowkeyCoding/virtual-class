@@ -106,8 +106,6 @@ class VirtualClass extends Peer{
                 }
                 connection.send(hostData)
                 
-                console.log("metadata", connection.metadata)
-                console.log("connection",connection)
                 this.updatePeerList();
                 this.handleData(data, connection);
                 this.broadcast({
@@ -214,8 +212,6 @@ class VirtualClass extends Peer{
     }
     // Use the signaling server to connect to a host.
     joinHost () {
-        console.log("joinning")
-        console.log("url", this.iconUrl)
         this.hostConnection = this.connect(this.hostId, {label: this.username, metadata: encodeURI(this.iconUrl)});
     
         this.hostConnection.on('open', () => {
@@ -267,19 +263,20 @@ class VirtualClass extends Peer{
     }
 }
 
-// Add text to messageBoard Element
+// Add text to messageBoard Element.
 const updateMessageBoard = (peerid, username, message) => {
     messageBoard.appendChild(messasgeTemplate(peerid, username, message));
 }
-
+// Adds a peer to the peer list.
 const addPeer = (peerId, username, iconUrl) => {
     peerList.appendChild(peerTemplate(peerId, username, iconUrl))
 }
+// Removes a peer from the peer list.
 const removePeer = (peerId) => {
     peerList.removeChild(document.getElementById(peerId));
 }
 
-// Update room name
+// Update room name.
 const updateRoom = (data) => {
     roomName.innerHTML = data.room.name;
 }
@@ -342,6 +339,7 @@ messageBox.addEventListener("keyup", (event) => {
   });
 
 // ---- Templates -----
+// Template for generating messages.
 const messasgeTemplate = (peerId, username, message) => {
     // Username Element
     usernameElement = document.createElement("p")
@@ -365,6 +363,7 @@ const messasgeTemplate = (peerId, username, message) => {
     containerElement.appendChild(messageElement);
     return containerElement;
 }
+// Template for generating new peers in the peers list.
 const peerTemplate = (peerId, username, iconURL) => {
     // icon Element
     iconElement = document.createElement("img")
