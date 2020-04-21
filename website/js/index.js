@@ -43,22 +43,26 @@ function updateIcon(){
     }
 }
 
-//
+// validates the username
 const validateUsername = () => {
     let _username = document.getElementById("username").value;
+    // checks if the username is greater than 3 characters long.
     if(_username.length > 3){
+        // checks if the username is less than 32 characters long.
         if (_username.length < 32){
             document.getElementById("errorText").innerHTML = "";
             return true;
         }
+        // sets error message
         document.getElementById("errorText").innerHTML = "Username must be at less than 32 characters long.";
         return false;
     }
+    // sets error message
     document.getElementById("errorText").innerHTML = "Username must be at least 3 characters long.";
     return false;
 }
 
-//
+// ToggleContainers the containers needed for the classroom mode.
 function ToggleContainer(){
     if(validateUsername()) {
         document.getElementById("setup-user").style.display = "none";
@@ -68,12 +72,12 @@ function ToggleContainer(){
     }
 }
 
-//
+// joins a given room
 const joinRoom = async () => {
     location.href = '/pages/client.html?peerId=' +  await getPeerId() + "&hostId=" + document.getElementById("roomID").value + "&username=" + username + "&iconUrl=" + encodeURIComponent(iconURL); 
 }
 
-//
+// creates a room with a given name
 const createRoom = async () => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://peerjs.walsted.dev/p2p/peerjs/id");
@@ -83,7 +87,7 @@ const createRoom = async () => {
     request.send();
 }
 
-//
+// gets a random username for the user.
 const getRandomName = async () => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&format=text");
@@ -96,6 +100,7 @@ const getRandomName = async () => {
     return await username;
 }
 
+// imports a steam username and profile picture based on the given steam id.
 const importSteamUser = async (steamid) => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&steamids=" + steamid);
