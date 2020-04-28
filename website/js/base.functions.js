@@ -343,6 +343,11 @@ const messasgeTemplate = (peerId, username, message) => {
         // Username Element
         usernameElement = document.createElement("p")
         usernameElement.className = "username"
+        if (peerId == vclass.hostId ) {
+            usernameElement.style.color = "#DC143C"
+        } else if (vclass.peerId == peerId ? vclass.peerType == "host" : false){
+            usernameElement.style.color = "#DC143C"
+        }
         if (username == "SYSTEM") {
             if (peerId == vclass.hostId) {
                 usernameElement.style.color = "#d4af37"
