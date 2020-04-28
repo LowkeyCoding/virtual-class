@@ -87,24 +87,25 @@ class VirtualClass extends Peer {
                         icon: connection.metadata,
                         peer: this.peerId
                     };
-                    // Send connected users icons and usernames to peerlist
-                    this.clientConnections.forEach(peer => {
-                            const data = {
-                                type: 'connected-user',
-                                username: peer.label,
-                                icon: peer.metadata,
-                                peer: peer.peer
-                            }
-                            connection.send(data)
-                        })
-                        // send host icon and username
+                    // send host icon and username
                     const hostData = {
                         type: 'connected-user',
                         username: this.username,
                         icon: this.iconUrl,
                         peer: this.peerId
                     }
-                    connection.send(hostData)
+                    connection.send(hostData);
+                    // Send connected users icons and usernames to peerlist
+                    this.clientConnections.forEach(connectedPeer => {
+                        let _data = {
+                            type: 'connected-user',
+                            username: connectedPeer.label,
+                            icon: connectedPeer.metadata,
+                            peer: this.peerId
+                        }
+                        if(connection.peer != connectedPeer.peer)
+                            connection.send(_data);
+                    });
 
                     this.updatePeerList();
                     this.handleData(data, connection);
