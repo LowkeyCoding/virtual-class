@@ -1,0 +1,1801 @@
+﻿
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1035" height="5696" shape-rendering="optimizeSpeed">
+                
+                <g>
+                   <rect x="50" y="65" width="162.6" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>var username = ""</title>
+            <text x="65" y="85" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="65" y="85">var username = ""</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="50" y="113.5" width="154.8" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>var iconURL = ""</title>
+            <text x="65" y="133.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="65" y="133.5">var iconURL = ""</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="50" y="162" width="170.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>var iconColor = ""</title>
+            <text x="65" y="182" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="65" y="182">var iconColor = ""</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="225.5" width="221.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="225.5" x2="60" y2="255.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="261.6" y1="225.5" x2="261.6" y2="255.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>function changeColor()</title>
+            <text x="75" y="245.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="245.5">function changeColor()</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="274" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>iconColor = (Math.random() * 0xFFFFFF &lt;&lt; 0).toString(16)</title>
+            <text x="102" y="294" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="294">iconColor = (Math.random() * 0xFFFFFF &lt;&lt; 0).toStri...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="322.5" width="123.6" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>updateIcon()</title>
+            <text x="102" y="342.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="342.5">updateIcon()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="386" width="252.79999999999998" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="386" x2="60" y2="416" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="292.79999999999995" y1="386" x2="292.79999999999995" y2="416" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>function onIconUrlChange()</title>
+            <text x="75" y="406" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="406">function onIconUrlChange()</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="434.5" width="420" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>iconURL = document.getElementById("iconurl").value</title>
+            <text x="102" y="454.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="454.5">iconURL = document.getElementById("iconurl").value</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="483" width="295.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('iconurl')</title>
+            <text x="139" y="503" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="503">document.getElementById('iconurl')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="531.5" width="123.6" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>updateIcon()</title>
+            <text x="102" y="551.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="551.5">updateIcon()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="580" width="170.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>validateUsername()</title>
+            <text x="102" y="600" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="600">validateUsername()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="643.5" width="260.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="643.5" x2="60" y2="673.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="300.6" y1="643.5" x2="300.6" y2="673.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>function onUsernameChange()</title>
+            <text x="75" y="663.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="663.5">function onUsernameChange()</tspan>
+            </text>
+                
+            </g><g>
+            <rect x="117" y="707" width="216" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="87,722 117,692 147,722 117,752" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(validateUsername())</title>
+            <text x="162" y="727" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="162" y="727">(validateUsername())</tspan>
+            </text>
+            
+            <text x="109.2" y="727" font-family="monospace" font-size="13" fill="#222">if</text> <text x="124.8" y="753.95" font-family="monospace" font-size="13" fill="#222">+</text> 
+        </g>
+                <g>
+                   <rect x="137" y="762" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>username = document.getElementById("username").value</title>
+            <text x="152" y="782" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="782">username = document.getElementById("username").val...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="810.5" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('username')</title>
+            <text x="189" y="830.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="830.5">document.getElementById('username')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="859" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("name").innerHTML = username</title>
+            <text x="152" y="879" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="879">document.getElementById("name").innerHTML = userna...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="907.5" width="271.79999999999995" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('name')</title>
+            <text x="189" y="927.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="927.5">document.getElementById('name')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="956" width="123.6" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>updateIcon()</title>
+            <text x="152" y="976" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="976">updateIcon()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="137" y="1004.5" width="76.8" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="213.8" y1="1014.5" x2="218.8" y2="1014.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="213.8" y1="1024.5" x2="218.8" y2="1024.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M218.8, 1008.5 L234.8, 1019.5 L218.8, 1030.5 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return</title>
+            <text x="152" y="1024.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="1024.5">return</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="1054.5" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("username").value = username</title>
+            <text x="102" y="1074.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="1074.5">document.getElementById("username").value = userna...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="1103" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('username')</title>
+            <text x="139" y="1123" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="1123">document.getElementById('username')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="1166.5" width="213.79999999999998" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="1166.5" x2="60" y2="1196.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="253.79999999999995" y1="1166.5" x2="253.79999999999995" y2="1196.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>function updateIcon()</title>
+            <text x="75" y="1186.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="1186.5">function updateIcon()</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="1215" width="271.79999999999995" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>console.log('update', username)</title>
+            <text x="102" y="1235" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="1235">console.log('update', username)</tspan>
+            </text>
+                   
+                   
+                </g><g>
+            <rect x="117" y="1278.5" width="434.4" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="87,1293.5 117,1263.5 147,1293.5 117,1323.5" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(document.getElementById("iconurl").value == "")</title>
+            <text x="162" y="1298.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="162" y="1298.5">(document.getElementById("iconurl").value == "")</tspan>
+            </text>
+            
+            <text x="109.2" y="1298.5" font-family="monospace" font-size="13" fill="#222">if</text> <text x="124.8" y="1325.45" font-family="monospace" font-size="13" fill="#222">+</text> <text x="555.3" y="1291.55" font-family="monospace" font-size="13" fill="#222">-</text>
+        </g>
+                <g>
+                   <rect x="137" y="1333.5" width="295.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('iconurl')</title>
+            <text x="152" y="1353.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="1353.5">document.getElementById('iconurl')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="1382" width="154.8" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>var letter = "?"</title>
+            <text x="152" y="1402" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="1402">var letter = "?"</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="1430.5" width="295.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>console.log('ul', username.length)</title>
+            <text x="152" y="1450.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="1450.5">console.log('ul', username.length)</tspan>
+            </text>
+                   
+                   
+                </g><g>
+            <rect x="167" y="1494" width="223.79999999999998" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="137,1509 167,1479 197,1509 167,1539" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(username.length &gt; 0)</title>
+            <text x="212" y="1514" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="212" y="1514">(username.length &gt; 0)</tspan>
+            </text>
+            
+            <text x="159.2" y="1514" font-family="monospace" font-size="13" fill="#222">if</text> <text x="174.8" y="1540.95" font-family="monospace" font-size="13" fill="#222">+</text> 
+        </g>
+                <g>
+                   <rect x="187" y="1549" width="295.2" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>letter = username[0].toUpperCase()</title>
+            <text x="202" y="1569" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="202" y="1569">letter = username[0].toUpperCase()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="1599" width="295.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementsByName('icon')</title>
+            <text x="152" y="1619" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="1619">document.getElementsByName('icon')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="1647.5" width="131.39999999999998" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>.forEach(*())</title>
+            <text x="152" y="1667.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="1667.5">.forEach(*())</tspan>
+            </text>
+                   <circle cx="143" cy="1671.5" r="4" style="fill:#ede7f6; stroke:#444; stroke-width:1"></circle>
+                   
+                </g>
+            <g>
+                <rect x="174" y="1696" width="143.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="184" y1="1696" x2="184" y2="1726" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="307.6" y1="1696" x2="307.6" y2="1726" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>(element) =&gt;</title>
+            <text x="199" y="1716" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="199" y="1716">(element) =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="211" y="1744.5" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>element.src = "https://via.placeholder.com/128/" + iconColor + "/ffffff/?text=" + letter</title>
+            <text x="226" y="1764.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="226" y="1764.5">element.src = "https://via.placeholder.com/128/" +...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="211" y="1793" width="193.79999999999998" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>iconURL = element.src</title>
+            <text x="226" y="1813" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="226" y="1813">iconURL = element.src</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="714.4" y="1333.5" width="295.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementsByName('icon')</title>
+            <text x="729.4" y="1353.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="729.4" y="1353.5">document.getElementsByName('icon')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="714.4" y="1382" width="131.39999999999998" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>.forEach(*())</title>
+            <text x="729.4" y="1402" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="729.4" y="1402">.forEach(*())</tspan>
+            </text>
+                   <circle cx="720.4" cy="1406" r="4" style="fill:#ede7f6; stroke:#444; stroke-width:1"></circle>
+                   
+                </g>
+            <g>
+                <rect x="751.4" y="1430.5" width="143.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="761.4" y1="1430.5" x2="761.4" y2="1460.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="885" y1="1430.5" x2="885" y2="1460.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>(element) =&gt;</title>
+            <text x="776.4" y="1450.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="776.4" y="1450.5">(element) =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="788.4" y="1479" width="193.79999999999998" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>element.src = iconURL</title>
+            <text x="803.4" y="1499" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="803.4" y="1499">element.src = iconURL</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="1858" width="237.2" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="1858" x2="60" y2="1888" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="277.2" y1="1858" x2="277.2" y2="1888" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>validateUsername = () =&gt;</title>
+            <text x="75" y="1878" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="1878">validateUsername = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="1906.5" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>let _username = document.getElementById("username").value</title>
+            <text x="102" y="1926.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="1926.5">let _username = document.getElementById("username"...</tspan>
+            </text>
+                   
+                   
+                </g><g>
+            <rect x="117" y="1970" width="231.60000000000002" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="87,1985 117,1955 147,1985 117,2015" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(_username.length &gt; 3)</title>
+            <text x="162" y="1990" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="162" y="1990">(_username.length &gt; 3)</tspan>
+            </text>
+            
+            <text x="109.2" y="1990" font-family="monospace" font-size="13" fill="#222">if</text> <text x="124.8" y="2016.95" font-family="monospace" font-size="13" fill="#222">+</text> 
+        </g><g>
+            <rect x="167" y="2040" width="239.39999999999998" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="137,2055 167,2025 197,2055 167,2085" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(_username.length &lt; 32)</title>
+            <text x="212" y="2060" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="212" y="2060">(_username.length &lt; 32)</tspan>
+            </text>
+            
+            <text x="159.2" y="2060" font-family="monospace" font-size="13" fill="#222">if</text> <text x="174.8" y="2086.95" font-family="monospace" font-size="13" fill="#222">+</text> 
+        </g>
+                <g>
+                   <rect x="187" y="2095" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("errorText").innerHTML = ""</title>
+            <text x="202" y="2115" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="202" y="2115">document.getElementById("errorText").innerHTML = "...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="224" y="2143.5" width="310.8" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('errorText')</title>
+            <text x="239" y="2163.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="239" y="2163.5">document.getElementById('errorText')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="187" y="2192" width="115.80000000000001" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="302.8" y1="2202" x2="307.8" y2="2202" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="302.8" y1="2212" x2="307.8" y2="2212" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M307.8, 2196 L323.8, 2207 L307.8, 2218 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return true</title>
+            <text x="202" y="2212" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="202" y="2212">return true</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="137" y="2242" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("errorText").innerHTML = "Username must be at less than 32 characters long."</title>
+            <text x="152" y="2262" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="2262">document.getElementById("errorText").innerHTML = "...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="2290.5" width="310.8" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('errorText')</title>
+            <text x="189" y="2310.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="2310.5">document.getElementById('errorText')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="137" y="2339" width="123.6" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="260.6" y1="2349" x2="265.6" y2="2349" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="260.6" y1="2359" x2="265.6" y2="2359" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M265.6, 2343 L281.6, 2354 L265.6, 2365 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return false</title>
+            <text x="152" y="2359" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="2359">return false</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="2389" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("errorText").innerHTML = "Username must be at least 3 characters long."</title>
+            <text x="102" y="2409" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="2409">document.getElementById("errorText").innerHTML = "...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="2437.5" width="310.8" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('errorText')</title>
+            <text x="139" y="2457.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="2457.5">document.getElementById('errorText')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="87" y="2486" width="123.6" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="210.6" y1="2496" x2="215.6" y2="2496" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="210.6" y1="2506" x2="215.6" y2="2506" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M215.6, 2490 L231.6, 2501 L215.6, 2512 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return false</title>
+            <text x="102" y="2506" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="2506">return false</tspan>
+            </text>
+                
+            </g>
+            <g>
+                <rect x="50" y="2549.5" width="252.79999999999998" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="2549.5" x2="60" y2="2579.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="292.79999999999995" y1="2549.5" x2="292.79999999999995" y2="2579.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>function ToggleContainer()</title>
+            <text x="75" y="2569.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="2569.5">function ToggleContainer()</tspan>
+            </text>
+                
+            </g><g>
+            <rect x="117" y="2613" width="216" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="87,2628 117,2598 147,2628 117,2658" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(validateUsername())</title>
+            <text x="162" y="2633" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="162" y="2633">(validateUsername())</tspan>
+            </text>
+            
+            <text x="109.2" y="2633" font-family="monospace" font-size="13" fill="#222">if</text> <text x="124.8" y="2659.95" font-family="monospace" font-size="13" fill="#222">+</text> 
+        </g>
+                <g>
+                   <rect x="137" y="2668" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("setup-user").style.display = "none"</title>
+            <text x="152" y="2688" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="2688">document.getElementById("setup-user").style.displa...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="2716.5" width="318.59999999999997" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('setup-user')</title>
+            <text x="189" y="2736.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="2736.5">document.getElementById('setup-user')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="2765" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("setup-room").style.display = "flex"</title>
+            <text x="152" y="2785" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="2785">document.getElementById("setup-room").style.displa...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="2813.5" width="318.59999999999997" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('setup-room')</title>
+            <text x="189" y="2833.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="2833.5">document.getElementById('setup-room')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="2862" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("useroverlay").style.display = "flex"</title>
+            <text x="152" y="2882" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="2882">document.getElementById("useroverlay").style.displ...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="2910.5" width="326.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('useroverlay')</title>
+            <text x="189" y="2930.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="2930.5">document.getElementById('useroverlay')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="2959" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("roomName").value = username + "'s classroom"</title>
+            <text x="152" y="2979" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="2979">document.getElementById("roomName").value = userna...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="174" y="3007.5" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('roomName')</title>
+            <text x="189" y="3027.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="189" y="3027.5">document.getElementById('roomName')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="3072.5" width="174.8" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="3072.5" x2="60" y2="3102.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="214.8" y1="3072.5" x2="214.8" y2="3102.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>joinRoom = () =&gt;</title>
+            <text x="75" y="3092.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="3092.5">joinRoom = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="3121" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>location.href = '/pages/client.html?peerId=' + (await getPeerId()) + "&amp;hostId=" + document.getElementById("roomID").value + "&amp;username=" + username + "&amp;iconUrl=" + encodeURIComponent(iconURL)</title>
+            <text x="102" y="3141" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="3141">location.href = '/pages/client.html?peerId=' + (aw...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="3169.5" width="115.8" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>getPeerId()</title>
+            <text x="139" y="3189.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="3189.5">getPeerId()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="3218" width="287.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('roomID')</title>
+            <text x="139" y="3238" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="3238">document.getElementById('roomID')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="3281.5" width="190.4" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="3281.5" x2="60" y2="3311.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="230.4" y1="3281.5" x2="230.4" y2="3311.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>createRoom = () =&gt;</title>
+            <text x="75" y="3301.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="3301.5">createRoom = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="3330" width="295.2" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>let request = new XMLHttpRequest()</title>
+            <text x="102" y="3350" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="3350">let request = new XMLHttpRequest()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="3378.5" width="443.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>request.open('GET', 'https://peerjs.walsted.dev/p2p/peerjs/id')</title>
+            <text x="102" y="3398.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="3398.5">request.open('GET', 'https://peerjs.walsted.dev/p2...</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="87" y="3442" width="221.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="97" y1="3442" x2="97" y2="3472" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="298.6" y1="3442" x2="298.6" y2="3472" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>request.onload = () =&gt;</title>
+            <text x="112" y="3462" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="112" y="3462">request.onload = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="124" y="3490.5" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>location.href = '/pages/host.html?peerId=' + (await getPeerId()) + "&amp;roomName=" + document.getElementById("roomName").value + "&amp;username=" + username + "&amp;iconUrl=" + encodeURIComponent(iconURL)</title>
+            <text x="139" y="3510.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="3510.5">location.href = '/pages/host.html?peerId=' + (awai...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="161" y="3539" width="115.8" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>getPeerId()</title>
+            <text x="176" y="3559" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="176" y="3559">getPeerId()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="161" y="3587.5" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('roomName')</title>
+            <text x="176" y="3607.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="176" y="3607.5">document.getElementById('roomName')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="3636" width="139.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>request.send()</title>
+            <text x="102" y="3656" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="3656">request.send()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="3699.5" width="213.79999999999998" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="3699.5" x2="60" y2="3729.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="253.79999999999995" y1="3699.5" x2="253.79999999999995" y2="3729.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>getRandomName = () =&gt;</title>
+            <text x="75" y="3719.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="3719.5">getRandomName = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="3748" width="295.2" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>let request = new XMLHttpRequest()</title>
+            <text x="102" y="3768" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="3768">let request = new XMLHttpRequest()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="3796.5" width="443.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>request.open('GET', 'https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&amp;format=text')</title>
+            <text x="102" y="3816.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="3816.5">request.open('GET', 'https://cors.walsted.dev/http...</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="87" y="3860" width="221.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="97" y1="3860" x2="97" y2="3890" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="298.6" y1="3860" x2="298.6" y2="3890" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>request.onload = () =&gt;</title>
+            <text x="112" y="3880" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="112" y="3880">request.onload = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="124" y="3908.5" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("username").value = await request.response</title>
+            <text x="139" y="3928.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="3928.5">document.getElementById("username").value = await ...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="161" y="3957" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('username')</title>
+            <text x="176" y="3977" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="176" y="3977">document.getElementById('username')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="4005.5" width="139.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>request.send()</title>
+            <text x="102" y="4025.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4025.5">request.send()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="87" y="4054" width="193.79999999999998" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="280.79999999999995" y1="4064" x2="285.79999999999995" y2="4064" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="280.79999999999995" y1="4074" x2="285.79999999999995" y2="4074" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M285.79999999999995, 4058 L301.79999999999995, 4069 L285.79999999999995, 4080 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return await username</title>
+            <text x="102" y="4074" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4074">return await username</tspan>
+            </text>
+                
+            </g>
+            <g>
+                <rect x="50" y="4117.5" width="284" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="4117.5" x2="60" y2="4147.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="324" y1="4117.5" x2="324" y2="4147.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>importSteamUser = (steamid) =&gt;</title>
+            <text x="75" y="4137.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="4137.5">importSteamUser = (steamid) =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="4166" width="295.2" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>let request = new XMLHttpRequest()</title>
+            <text x="102" y="4186" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4186">let request = new XMLHttpRequest()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="4214.5" width="443.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>request.open('GET', "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&amp;steamids=" + steamid)</title>
+            <text x="102" y="4234.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4234.5">request.open('GET', "https://api.steampowered.com/...</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="87" y="4278" width="221.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="97" y1="4278" x2="97" y2="4308" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="298.6" y1="4278" x2="298.6" y2="4308" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>request.onload = () =&gt;</title>
+            <text x="112" y="4298" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="112" y="4298">request.onload = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="124" y="4326.5" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>player = await JSON.parse(request.response).response.players[0]</title>
+            <text x="139" y="4346.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4346.5">player = await JSON.parse(request.response).respon...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="161" y="4375" width="248.4" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>JSON.parse(request.response)</title>
+            <text x="176" y="4395" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="176" y="4395">JSON.parse(request.response)</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="4423.5" width="256.2" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>username = player.personaname</title>
+            <text x="139" y="4443.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4443.5">username = player.personaname</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="4472" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("name").innerHTML = username</title>
+            <text x="139" y="4492" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4492">document.getElementById("name").innerHTML = userna...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="161" y="4520.5" width="271.79999999999995" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('name')</title>
+            <text x="176" y="4540.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="176" y="4540.5">document.getElementById('name')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="4569" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("username").value = username</title>
+            <text x="139" y="4589" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4589">document.getElementById("username").value = userna...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="161" y="4617.5" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('username')</title>
+            <text x="176" y="4637.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="176" y="4637.5">document.getElementById('username')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="4666" width="240.6" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>iconURL = player.avatarfull</title>
+            <text x="139" y="4686" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4686">iconURL = player.avatarfull</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="4714.5" width="123.6" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>updateIcon()</title>
+            <text x="139" y="4734.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4734.5">updateIcon()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="4763" width="139.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>request.send()</title>
+            <text x="102" y="4783" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4783">request.send()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="4826.5" width="182.6" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="4826.5" x2="60" y2="4856.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="222.6" y1="4826.5" x2="222.6" y2="4856.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>getPeerId = () =&gt;</title>
+            <text x="75" y="4846.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="4846.5">getPeerId = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="4875" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>res = await fetch('https://peerjs.walsted.dev/p2p/peerjs/id')</title>
+            <text x="102" y="4895" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4895">res = await fetch('https://peerjs.walsted.dev/p2p/...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="4923.5" width="412.2" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>fetch('https://peerjs.walsted.dev/p2p/peerjs/id')</title>
+            <text x="139" y="4943.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="4943.5">fetch('https://peerjs.walsted.dev/p2p/peerjs/id')</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="87" y="4972" width="209.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="296.4" y1="4982" x2="301.4" y2="4982" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="296.4" y1="4992" x2="301.4" y2="4992" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M301.4, 4976 L317.4, 4987 L301.4, 4998 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return await res.text()</title>
+            <text x="102" y="4992" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="4992">return await res.text()</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="124" y="5020.5" width="108" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>res.text()</title>
+            <text x="139" y="5040.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="5040.5">res.text()</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="50" y="5069" width="147" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>getRandomName()</title>
+            <text x="65" y="5089" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="65" y="5089">getRandomName()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="50" y="5132.5" width="151.39999999999998" height="30" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></rect>
+                    
+                <line x1="60" y1="5132.5" x2="60" y2="5162.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                <line x1="191.39999999999998" y1="5132.5" x2="191.39999999999998" y2="5162.5" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+             
+                <title>setup = () =&gt;</title>
+            <text x="75" y="5152.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="75" y="5152.5">setup = () =&gt;</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="5181" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>username = document.getElementById("username").value</title>
+            <text x="102" y="5201" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="5201">username = document.getElementById("username").val...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="5229.5" width="303" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('username')</title>
+            <text x="139" y="5249.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="5249.5">document.getElementById('username')</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="87" y="5278" width="443.4" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById("name").innerHTML = username</title>
+            <text x="102" y="5298" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="5298">document.getElementById("name").innerHTML = userna...</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="124" y="5326.5" width="271.79999999999995" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>document.getElementById('name')</title>
+            <text x="139" y="5346.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="139" y="5346.5">document.getElementById('name')</tspan>
+            </text>
+                   
+                   
+                </g><g>
+            <rect x="117" y="5390" width="184.8" height="30" rx="3" ry="3" style="fill:#ce93d8; stroke:#444; stroke-width:1"></rect>                
+            <polygon points="87,5405 117,5375 147,5405 117,5435" style="fill:#ce93d8; stroke:#444; stroke-width:1"></polygon>
+            <title>(username != "")</title>
+            <text x="162" y="5410" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="162" y="5410">(username != "")</tspan>
+            </text>
+            
+            <text x="109.2" y="5410" font-family="monospace" font-size="13" fill="#222">if</text> <text x="124.8" y="5436.95" font-family="monospace" font-size="13" fill="#222">+</text> 
+        </g>
+                <g>
+                   <rect x="137" y="5445" width="193.79999999999998" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>console.log(username)</title>
+            <text x="152" y="5465" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="5465">console.log(username)</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="137" y="5493.5" width="123.6" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>updateIcon()</title>
+            <text x="152" y="5513.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="5513.5">updateIcon()</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+                <rect x="137" y="5542" width="76.8" height="30" rx="3" ry="3" style="fill:#90caf9; stroke:#444; stroke-width:1"></rect>
+                
+                <line x1="213.8" y1="5552" x2="218.8" y2="5552" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+                
+                <line x1="213.8" y1="5562" x2="218.8" y2="5562" style="fill:#a5d6a7; stroke:#444; stroke-width:1"></line>
+
+                <path d="M218.8, 5546 L234.8, 5557 L218.8, 5568 Z" fill="#a5d6a7" stroke="#444" stroke-width="1"></path>
+                             
+                <title>return</title>
+            <text x="152" y="5562" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="152" y="5562">return</tspan>
+            </text>
+                
+            </g>
+                <g>
+                   <rect x="87" y="5592" width="193.79999999999998" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>setTimeout(setup, 50)</title>
+            <text x="102" y="5612" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="102" y="5612">setTimeout(setup, 50)</tspan>
+            </text>
+                   
+                   
+                </g>
+                <g>
+                   <rect x="50" y="5640.5" width="435.59999999999997" height="30" rx="2" ry="2" style="fill:#C5E1A5; stroke:#444; stroke-width:1"></rect>
+                   <title>(setup = () =&gt; {
+  username = document.getElementById("username").value;
+  document.getElementById("name").innerHTML = username; // Joins the selected host if the peer has been created
+
+  if (username != "") {
+    console.log(username);
+    updateIcon();
+    return;
+  }
+
+  setTimeout(setup, 50);
+})()</title>
+            <text x="65" y="5660.5" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="65" y="5660.5">(setup = () =&gt; {
+  username = document.getElementB...</tspan>
+            </text>
+                   
+                   
+                </g>
+            <g>
+               <rect x="25" y="13.75" width="216.6" height="24" style="fill:#fff59d; stroke:#444; stroke-width:1"></rect>
+               <circle cx="25" cy="25" r="15" style="fill:#fff59d; stroke:#444; stroke-width:1"></circle>
+               <title>Program: source module</title>
+            <text x="55" y="30" font-family="monospace" font-size="13" fill="#222">
+                <tspan x="55" y="30">Program: source module</tspan>
+            </text>
+            </g>
+            <g>
+               <path d="M25, 40 L25 76 Q25 80
+                29 80
+                L42 80 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 77 L50, 80 L42, 83 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 124.5 Q25 128.5
+                29 128.5
+                L42 128.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 125.5 L50, 128.5 L42, 131.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 173 Q25 177
+                29 177
+                L42 177 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 174 L50, 177 L42, 180 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 236.5 Q25 240.5
+                29 240.5
+                L42 240.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 237.5 L50, 240.5 L42, 243.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 255.5 L68.5 285 Q68.5 289
+                72.5 289
+                L79 289 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 286 L87, 289 L79, 292 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 255.5 L68.5 333.5 Q68.5 337.5
+                72.5 337.5
+                L79 337.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 334.5 L87, 337.5 L79, 340.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 397 Q25 401
+                29 401
+                L42 401 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 398 L50, 401 L42, 404 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 416 L68.5 445.5 Q68.5 449.5
+                72.5 449.5
+                L79 449.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 446.5 L87, 449.5 L79, 452.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 464.5 L105.5 494 Q105.5 498
+                109.5 498
+                L116 498 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 495 L124, 498 L116, 501 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 416 L68.5 542.5 Q68.5 546.5
+                72.5 546.5
+                L79 546.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 543.5 L87, 546.5 L79, 549.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 416 L68.5 591 Q68.5 595
+                72.5 595
+                L79 595 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 592 L87, 595 L79, 598 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 654.5 Q25 658.5
+                29 658.5
+                L42 658.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 655.5 L50, 658.5 L42, 661.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 673.5 L68.5 718 Q68.5 722
+                72.5 722
+                L79 722 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 719 L87, 722 L79, 725 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 752 L117 773 Q117 777
+                121 777
+                L129 777 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 774 L137, 777 L129, 780 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 792 L155.5 821.5 Q155.5 825.5
+                159.5 825.5
+                L166 825.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 822.5 L174, 825.5 L166, 828.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 752 L117 870 Q117 874
+                121 874
+                L129 874 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 871 L137, 874 L129, 877 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 889 L155.5 918.5 Q155.5 922.5
+                159.5 922.5
+                L166 922.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 919.5 L174, 922.5 L166, 925.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 752 L117 967 Q117 971
+                121 971
+                L129 971 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 968 L137, 971 L129, 974 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 752 L117 1015.5 Q117 1019.5
+                121 1019.5
+                L129 1019.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1016.5 L137, 1019.5 L129, 1022.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 673.5 L68.5 1065.5 Q68.5 1069.5
+                72.5 1069.5
+                L79 1069.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 1066.5 L87, 1069.5 L79, 1072.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 1084.5 L105.5 1114 Q105.5 1118
+                109.5 1118
+                L116 1118 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 1115 L124, 1118 L116, 1121 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 1177.5 Q25 1181.5
+                29 1181.5
+                L42 1181.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 1178.5 L50, 1181.5 L42, 1184.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 1196.5 L68.5 1226 Q68.5 1230
+                72.5 1230
+                L79 1230 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 1227 L87, 1230 L79, 1233 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 1196.5 L68.5 1289.5 Q68.5 1293.5
+                72.5 1293.5
+                L79 1293.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 1290.5 L87, 1293.5 L79, 1296.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 1323.5 L117 1344.5 Q117 1348.5
+                121 1348.5
+                L129 1348.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1345.5 L137, 1348.5 L129, 1351.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 1323.5 L117 1393 Q117 1397
+                121 1397
+                L129 1397 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1394 L137, 1397 L129, 1400 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 1323.5 L117 1441.5 Q117 1445.5
+                121 1445.5
+                L129 1445.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1442.5 L137, 1445.5 L129, 1448.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 1323.5 L117 1505 Q117 1509
+                121 1509
+                L129 1509 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1506 L137, 1509 L129, 1512 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M167, 1539 L167 1560 Q167 1564
+                171 1564
+                L179 1564 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M179, 1561 L187, 1564 L179, 1567 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 1323.5 L117 1610 Q117 1614
+                121 1614
+                L129 1614 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1611 L137, 1614 L129, 1617 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 1323.5 L117 1658.5 Q117 1662.5
+                121 1662.5
+                L129 1662.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 1659.5 L137, 1662.5 L129, 1665.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 1677.5 L155.5 1707 Q155.5 1711
+                159.5 1711
+                L174 1711 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               false
+            </g>
+            <g>
+               <path d="M192.5, 1726 L192.5 1755.5 Q192.5 1759.5
+                196.5 1759.5
+                L203 1759.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M203, 1756.5 L211, 1759.5 L203, 1762.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M192.5, 1726 L192.5 1804 Q192.5 1808
+                196.5 1808
+                L203 1808 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M203, 1805 L211, 1808 L203, 1811 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M551.4, 1293.5 L690.4 1293.5  Q694.4 1293.5
+                694.4 1297.5
+                L694.4 1340.5 Q694.4 1348.5
+                698.4 1348.5
+                L706.4 1348.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M706.4, 1345.5 L714.4, 1348.5 L706.4, 1351.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M551.4, 1293.5 L690.4 1293.5  Q694.4 1293.5
+                694.4 1297.5
+                L694.4 1389 Q694.4 1397
+                698.4 1397
+                L706.4 1397 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M706.4, 1394 L714.4, 1397 L706.4, 1400 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M732.9, 1412 L732.9 1441.5 Q732.9 1445.5
+                736.9 1445.5
+                L751.4 1445.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               false
+            </g>
+            <g>
+               <path d="M769.9, 1460.5 L769.9 1490 Q769.9 1494
+                773.9 1494
+                L780.4 1494 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M780.4, 1491 L788.4, 1494 L780.4, 1497 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 1869 Q25 1873
+                29 1873
+                L42 1873 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 1870 L50, 1873 L42, 1876 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 1888 L68.5 1917.5 Q68.5 1921.5
+                72.5 1921.5
+                L79 1921.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 1918.5 L87, 1921.5 L79, 1924.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 1888 L68.5 1981 Q68.5 1985
+                72.5 1985
+                L79 1985 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 1982 L87, 1985 L79, 1988 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2015 L117 2051 Q117 2055
+                121 2055
+                L129 2055 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2052 L137, 2055 L129, 2058 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M167, 2085 L167 2106 Q167 2110
+                171 2110
+                L179 2110 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M179, 2107 L187, 2110 L179, 2113 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M205.5, 2125 L205.5 2154.5 Q205.5 2158.5
+                209.5 2158.5
+                L216 2158.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M216, 2155.5 L224, 2158.5 L216, 2161.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M167, 2085 L167 2203 Q167 2207
+                171 2207
+                L179 2207 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M179, 2204 L187, 2207 L179, 2210 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2015 L117 2253 Q117 2257
+                121 2257
+                L129 2257 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2254 L137, 2257 L129, 2260 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 2272 L155.5 2301.5 Q155.5 2305.5
+                159.5 2305.5
+                L166 2305.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 2302.5 L174, 2305.5 L166, 2308.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2015 L117 2350 Q117 2354
+                121 2354
+                L129 2354 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2351 L137, 2354 L129, 2357 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 1888 L68.5 2400 Q68.5 2404
+                72.5 2404
+                L79 2404 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 2401 L87, 2404 L79, 2407 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 2419 L105.5 2448.5 Q105.5 2452.5
+                109.5 2452.5
+                L116 2452.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 2449.5 L124, 2452.5 L116, 2455.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 1888 L68.5 2497 Q68.5 2501
+                72.5 2501
+                L79 2501 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 2498 L87, 2501 L79, 2504 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 2560.5 Q25 2564.5
+                29 2564.5
+                L42 2564.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 2561.5 L50, 2564.5 L42, 2567.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 2579.5 L68.5 2624 Q68.5 2628
+                72.5 2628
+                L79 2628 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 2625 L87, 2628 L79, 2631 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2658 L117 2679 Q117 2683
+                121 2683
+                L129 2683 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2680 L137, 2683 L129, 2686 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 2698 L155.5 2727.5 Q155.5 2731.5
+                159.5 2731.5
+                L166 2731.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 2728.5 L174, 2731.5 L166, 2734.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2658 L117 2776 Q117 2780
+                121 2780
+                L129 2780 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2777 L137, 2780 L129, 2783 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 2795 L155.5 2824.5 Q155.5 2828.5
+                159.5 2828.5
+                L166 2828.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 2825.5 L174, 2828.5 L166, 2831.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2658 L117 2873 Q117 2877
+                121 2877
+                L129 2877 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2874 L137, 2877 L129, 2880 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 2892 L155.5 2921.5 Q155.5 2925.5
+                159.5 2925.5
+                L166 2925.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 2922.5 L174, 2925.5 L166, 2928.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 2658 L117 2970 Q117 2974
+                121 2974
+                L129 2974 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 2971 L137, 2974 L129, 2977 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M155.5, 2989 L155.5 3018.5 Q155.5 3022.5
+                159.5 3022.5
+                L166 3022.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M166, 3019.5 L174, 3022.5 L166, 3025.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 3083.5 Q25 3087.5
+                29 3087.5
+                L42 3087.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 3084.5 L50, 3087.5 L42, 3090.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3102.5 L68.5 3132 Q68.5 3136
+                72.5 3136
+                L79 3136 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3133 L87, 3136 L79, 3139 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 3151 L105.5 3180.5 Q105.5 3184.5
+                109.5 3184.5
+                L116 3184.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 3181.5 L124, 3184.5 L116, 3187.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 3151 L105.5 3229 Q105.5 3233
+                109.5 3233
+                L116 3233 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 3230 L124, 3233 L116, 3236 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 3292.5 Q25 3296.5
+                29 3296.5
+                L42 3296.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 3293.5 L50, 3296.5 L42, 3299.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3311.5 L68.5 3341 Q68.5 3345
+                72.5 3345
+                L79 3345 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3342 L87, 3345 L79, 3348 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3311.5 L68.5 3389.5 Q68.5 3393.5
+                72.5 3393.5
+                L79 3393.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3390.5 L87, 3393.5 L79, 3396.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3311.5 L68.5 3453 Q68.5 3457
+                72.5 3457
+                L79 3457 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3454 L87, 3457 L79, 3460 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 3472 L105.5 3501.5 Q105.5 3505.5
+                109.5 3505.5
+                L116 3505.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 3502.5 L124, 3505.5 L116, 3508.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M142.5, 3520.5 L142.5 3550 Q142.5 3554
+                146.5 3554
+                L153 3554 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M153, 3551 L161, 3554 L153, 3557 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M142.5, 3520.5 L142.5 3598.5 Q142.5 3602.5
+                146.5 3602.5
+                L153 3602.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M153, 3599.5 L161, 3602.5 L153, 3605.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3311.5 L68.5 3647 Q68.5 3651
+                72.5 3651
+                L79 3651 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3648 L87, 3651 L79, 3654 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 3710.5 Q25 3714.5
+                29 3714.5
+                L42 3714.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 3711.5 L50, 3714.5 L42, 3717.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3729.5 L68.5 3759 Q68.5 3763
+                72.5 3763
+                L79 3763 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3760 L87, 3763 L79, 3766 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3729.5 L68.5 3807.5 Q68.5 3811.5
+                72.5 3811.5
+                L79 3811.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3808.5 L87, 3811.5 L79, 3814.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3729.5 L68.5 3871 Q68.5 3875
+                72.5 3875
+                L79 3875 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 3872 L87, 3875 L79, 3878 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 3890 L105.5 3919.5 Q105.5 3923.5
+                109.5 3923.5
+                L116 3923.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 3920.5 L124, 3923.5 L116, 3926.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M142.5, 3938.5 L142.5 3968 Q142.5 3972
+                146.5 3972
+                L153 3972 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M153, 3969 L161, 3972 L153, 3975 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3729.5 L68.5 4016.5 Q68.5 4020.5
+                72.5 4020.5
+                L79 4020.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4017.5 L87, 4020.5 L79, 4023.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 3729.5 L68.5 4065 Q68.5 4069
+                72.5 4069
+                L79 4069 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4066 L87, 4069 L79, 4072 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 4128.5 Q25 4132.5
+                29 4132.5
+                L42 4132.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 4129.5 L50, 4132.5 L42, 4135.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 4147.5 L68.5 4177 Q68.5 4181
+                72.5 4181
+                L79 4181 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4178 L87, 4181 L79, 4184 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 4147.5 L68.5 4225.5 Q68.5 4229.5
+                72.5 4229.5
+                L79 4229.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4226.5 L87, 4229.5 L79, 4232.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 4147.5 L68.5 4289 Q68.5 4293
+                72.5 4293
+                L79 4293 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4290 L87, 4293 L79, 4296 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4308 L105.5 4337.5 Q105.5 4341.5
+                109.5 4341.5
+                L116 4341.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4338.5 L124, 4341.5 L116, 4344.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M142.5, 4356.5 L142.5 4386 Q142.5 4390
+                146.5 4390
+                L153 4390 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M153, 4387 L161, 4390 L153, 4393 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4308 L105.5 4434.5 Q105.5 4438.5
+                109.5 4438.5
+                L116 4438.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4435.5 L124, 4438.5 L116, 4441.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4308 L105.5 4483 Q105.5 4487
+                109.5 4487
+                L116 4487 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4484 L124, 4487 L116, 4490 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M142.5, 4502 L142.5 4531.5 Q142.5 4535.5
+                146.5 4535.5
+                L153 4535.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M153, 4532.5 L161, 4535.5 L153, 4538.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4308 L105.5 4580 Q105.5 4584
+                109.5 4584
+                L116 4584 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4581 L124, 4584 L116, 4587 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M142.5, 4599 L142.5 4628.5 Q142.5 4632.5
+                146.5 4632.5
+                L153 4632.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M153, 4629.5 L161, 4632.5 L153, 4635.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4308 L105.5 4677 Q105.5 4681
+                109.5 4681
+                L116 4681 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4678 L124, 4681 L116, 4684 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4308 L105.5 4725.5 Q105.5 4729.5
+                109.5 4729.5
+                L116 4729.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4726.5 L124, 4729.5 L116, 4732.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 4147.5 L68.5 4774 Q68.5 4778
+                72.5 4778
+                L79 4778 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4775 L87, 4778 L79, 4781 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 4837.5 Q25 4841.5
+                29 4841.5
+                L42 4841.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 4838.5 L50, 4841.5 L42, 4844.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 4856.5 L68.5 4886 Q68.5 4890
+                72.5 4890
+                L79 4890 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4887 L87, 4890 L79, 4893 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 4905 L105.5 4934.5 Q105.5 4938.5
+                109.5 4938.5
+                L116 4938.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 4935.5 L124, 4938.5 L116, 4941.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 4856.5 L68.5 4983 Q68.5 4987
+                72.5 4987
+                L79 4987 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 4984 L87, 4987 L79, 4990 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 5002 L105.5 5031.5 Q105.5 5035.5
+                109.5 5035.5
+                L116 5035.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 5032.5 L124, 5035.5 L116, 5038.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 5080 Q25 5084
+                29 5084
+                L42 5084 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 5081 L50, 5084 L42, 5087 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 5143.5 Q25 5147.5
+                29 5147.5
+                L42 5147.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 5144.5 L50, 5147.5 L42, 5150.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 5162.5 L68.5 5192 Q68.5 5196
+                72.5 5196
+                L79 5196 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 5193 L87, 5196 L79, 5199 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 5211 L105.5 5240.5 Q105.5 5244.5
+                109.5 5244.5
+                L116 5244.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 5241.5 L124, 5244.5 L116, 5247.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 5162.5 L68.5 5289 Q68.5 5293
+                72.5 5293
+                L79 5293 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 5290 L87, 5293 L79, 5296 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M105.5, 5308 L105.5 5337.5 Q105.5 5341.5
+                109.5 5341.5
+                L116 5341.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M116, 5338.5 L124, 5341.5 L116, 5344.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 5162.5 L68.5 5401 Q68.5 5405
+                72.5 5405
+                L79 5405 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 5402 L87, 5405 L79, 5408 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 5435 L117 5456 Q117 5460
+                121 5460
+                L129 5460 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 5457 L137, 5460 L129, 5463 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 5435 L117 5504.5 Q117 5508.5
+                121 5508.5
+                L129 5508.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 5505.5 L137, 5508.5 L129, 5511.5 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M117, 5435 L117 5553 Q117 5557
+                121 5557
+                L129 5557 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M129, 5554 L137, 5557 L129, 5560 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M68.5, 5162.5 L68.5 5603 Q68.5 5607
+                72.5 5607
+                L79 5607 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M79, 5604 L87, 5607 L79, 5610 Z" fill="#333"></path>
+            </g>
+            <g>
+               <path d="M25, 40 L25 5651.5 Q25 5655.5
+                29 5655.5
+                L42 5655.5 " style="fill:none; stroke:#444; stroke-width:1"></path>
+               <path d="M42, 5652.5 L50, 5655.5 L42, 5658.5 Z" fill="#333"></path>
+            </g>
+            </svg>

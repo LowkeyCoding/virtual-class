@@ -103,7 +103,7 @@ const getRandomName = async () => {
 // imports a steam username and profile picture based on the given steam id.
 const importSteamUser = async (steamid) => {
     let request = new XMLHttpRequest();
-    request.open('GET', "https://cors.walsted.dev/https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&steamids=" + steamid);
+    request.open('GET', "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&steamids=" + steamid);
     let username;
     request.onload = async () => {
         player = await JSON.parse(request.response).response.players[0];
