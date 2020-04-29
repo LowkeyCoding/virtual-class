@@ -17,7 +17,7 @@ function onIconUrlChange (){
 //
 function onUsernameChange(){
     if (validateUsername()){
-        username = document.getElementById("username").value;
+        username = getUsername();
         document.getElementById("name").innerHTML = username;
         updateIcon();
         return;
@@ -45,11 +45,11 @@ function updateIcon(){
 
 // validates the username
 const validateUsername = () => {
-    let _username = document.getElementById("username").value;
-    // checks if the username is greater than 3 characters long.
-    if(_username.length > 3){
-        // checks if the username is less than 32 characters long.
-        if (_username.length < 32){
+    let _username = getUsername();
+    // checks if the username is greater than 2 characters long.
+    if(_username.length > 2){
+        // checks if the username is less than 64 characters long.
+        if (_username.length < 64){
             document.getElementById("errorText").innerHTML = "";
             return true;
         }
@@ -120,10 +120,14 @@ const getPeerId = async () => {
     return await res.text();
 }
 
+const getUsername = ()=> {
+    return document.getElementById("Firstname").value + " " +document.getElementById("Lastname").value
+}
+
 // Sets the username
-getRandomName();
+//getRandomName();
 (setup = () => {
-    username = document.getElementById("username").value;
+    username = getUsername();
     document.getElementById("name").innerHTML = username;
     // Joins the selected host if the peer has been created
     if (username != "") {

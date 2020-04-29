@@ -78,7 +78,8 @@ input[type=text]:hover,input[type=text]:focus{
     height: 48px;
     background-color: $color-primary;
     border-radius: 8px;
-
+    cursor: pointer;
+    
     p{
         color: white;
         font-weight: bold;
