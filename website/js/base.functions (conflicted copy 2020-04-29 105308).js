@@ -87,25 +87,24 @@ class VirtualClass extends Peer {
                         icon: connection.metadata,
                         peer: this.peerId
                     };
-                    // send host icon and username
+                    // Send connected users icons and usernames to peerlist
+                    this.clientConnections.forEach(peer => {
+                            const data = {
+                                type: 'connected-user',
+                                username: peer.label,
+                                icon: peer.metadata,
+                                peer: peer.peer
+                            }
+                            connection.send(data)
+                        })
+                        // send host icon and username
                     const hostData = {
                         type: 'connected-user',
                         username: this.username,
                         icon: this.iconUrl,
                         peer: this.peerId
                     }
-                    connection.send(hostData);
-                    // Send connected users icons and usernames to peerlist
-                    this.clientConnections.forEach(connectedPeer => {
-                        let _data = {
-                            type: 'connected-user',
-                            username: connectedPeer.label,
-                            icon: connectedPeer.metadata,
-                            peer: this.peerId
-                        }
-                        if (connection.peer != connectedPeer.peer)
-                            connection.send(_data);
-                    });
+                    connection.send(hostData)
 
                     this.updatePeerList();
                     this.handleData(data, connection);
@@ -158,13 +157,10 @@ class VirtualClass extends Peer {
                 // Helper handlers
                 // Boardcasts a stream to either 1 or all connected peers depending on wether peerId is set.
             this.broadcast_stream = (peerID) => {
-                    console.log("peerid", peerID);
                     if (peerID) {
-                        console.log(peerID);
                         this.call(peerID, this.stream);
                     } else {
                         this.clientConnections.forEach((connection) => {
-                            console.log(connection.peer);
                             this.call(connection.peer, this.stream)
                         });
                     }
@@ -344,11 +340,6 @@ const messasgeTemplate = (peerId, username, message) => {
         // Username Element
         usernameElement = document.createElement("p")
         usernameElement.className = "username"
-        if (peerId == vclass.hostId) {
-            usernameElement.style.color = "#DC143C"
-        } else if (vclass.peerId == peerId ? vclass.peerType == "host" : false) {
-            usernameElement.style.color = "#DC143C"
-        }
         if (username == "SYSTEM") {
             if (peerId == vclass.hostId) {
                 usernameElement.style.color = "#d4af37"
@@ -360,7 +351,7 @@ const messasgeTemplate = (peerId, username, message) => {
         // Message Element
         messageElement = document.createElement("p")
         messageElement.className = "message"
-        messageElement.innerHTML = "&nbsp;" + message;
+        messageElement.innerHTML = message;
         // Container Element
         containerElement = document.createElement("div")
         containerElement.className = "messageContainer";

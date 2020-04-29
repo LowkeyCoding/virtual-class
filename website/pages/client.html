@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <!---- Head ---->
-    <head>
-        <!-- Meta -->
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>VClass - Client</title>
-        <!-- Styling -->
-        <link rel="stylesheet" href="/styles/css/app-styles.css">
-    </head>
-    <!---- Body ---->
-    <body>
-        <div id="app">
-            <!-- User Overlay-->
-            <div id="useroverlay" class="shadow rounded" style="display:none">
-                <p>Welcome<a id="name" name="username">name</a><img src="" name="icon" class="circular" height="32" width="32" placeholder="icon"></p>
-            </div>
+<!---- Head ---->
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VClass - Client</title>
+    <!-- Styling -->
+    <link rel="stylesheet" href="/styles/css/app-styles.css">
+</head>
+<!---- Body ---->
+
+<body>
+    <div id="app">
+        <!-- User Overlay-->
+        <div id="useroverlay" class="shadow rounded" style="display:none">
+            <p>Welcome<a id="name" name="username">name</a><img src="" name="icon" class="circular" height="32" width="32" placeholder="icon"></p>
+        </div>
+        <!-- Chat -->
+        <div id="chat" class="panel shadow">
+            <!-- Title -->
+            <h4>Chat</h4>
             <!-- Chat -->
-            <div id="chat" class="panel shadow">
-                <!-- Title -->
-                <h4>Chat</h4>
-                <!-- Chat -->
-                <div id="messageBoard">
-                    <div class="messageContainer"><p class="username" style="color: rgb(212, 175, 55);">[SYSTEM]:</p><p class="message">Joined Room</p></div>
+            <div id="messageBoard">
+                <div class="messageContainer">
+                    <p class="username" style="color: rgb(212, 175, 55);">[SYSTEM]:&nbsp;</p>
+                    <p class="message">Joined Room</p>
                 </div>
-                <!-- Chat Input -->
-                <input id="messageBox" class="" type="text" placeholder="Write Message" autocomplete="on"/>
             </div>
-            <!-- Stream -->
-            <div id="classroom"  class="panel">
-                <div class="content">
-                    <!-- Room Name -->
-                    <h2 id="class-name" onfocusout="vclass.onRoomStateChanged()">Classroom</h2>
-                    <div class="row">
-                        <!-- Room ID -->
-                        <div id="selfId"> Loading... </div>
-                    </div>
-                    <!-- Stream -->
-                    <video id="stream" controls autoplay></video>
-                    <!-- Peer List -->
-                    <div id="peerList"></div>
+            <!-- Chat Input -->
+            <input id="messageBox" class="" type="text" placeholder="Write Message" autocomplete="on" />
+        </div>
+        <!-- Stream -->
+        <div id="classroom" class="panel">
+            <div class="content">
+                <!-- Room Name -->
+                <h2 id="class-name" onfocusout="vclass.onRoomStateChanged()">Classroom</h2>
+                <div class="row">
+                    <!-- Room ID -->
+                    <div id="selfId"> Loading... </div>
                 </div>
+                <!-- Stream -->
+                <video id="stream" controls autoplay></video>
+                <!-- Peer List -->
+                <div id="peerList"></div>
             </div>
         </div>
-    </body>
-    <!---- Scripts ---->
-    <footer>
-        <!-- Libraries -->
-        <script src="../js/libs/immutable.min.js"></script>
-        <!-- <script src="../js/libs/peerjs.min.js"></script>-->
-        <script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
-        <script src="../js/libs/util.js"></script>
-        <!-- User Scripts -->
-        <script src="../js/base.functions.js"></script>
-        <script src="../js/client.js"></script>
-    </footer>
+    </div>
+</body>
+<!---- Scripts ---->
+<footer>
+    <!-- Libraries -->
+    <script src="../js/libs/immutable.min.js"></script>
+    <!-- <script src="../js/libs/peerjs.min.js"></script>-->
+    <script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
+    <script src="../js/libs/util.js"></script>
+    <!-- User Scripts -->
+    <script src="../js/base.functions.js"></script>
+    <script src="../js/client.js"></script>
+</footer>
+
 </html>
