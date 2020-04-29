@@ -31,6 +31,7 @@ class VirtualClass extends Peer {
             this.on('error', (error) => {
                 console.log(error);
                 window.Perror = error;
+                updateMessageBoard(this.hostId, "SYSTEM", error);
             });
         }
         // Sets up the peer and handlers
@@ -154,6 +155,7 @@ class VirtualClass extends Peer {
                 // Handels when ever the peer or host gets a error.
             this.onError = (error) => {
                     console.log(error);
+                    updateMessageBoard(this.hostId, "SYSTEM", error);
                 }
                 // Helper handlers
                 // Boardcasts a stream to either 1 or all connected peers depending on wether peerId is set.
