@@ -68,9 +68,9 @@ class VirtualClass extends Peer {
 
                     connection.on('data', (data) => { this.onData(data, connection) });
 
-                    connection.on('disconnected', () => { console.log("reee");this.onPeerDisconnected(connection); });
+                    connection.on('disconnected', () => { this.onPeerDisconnected(connection); });
 
-                    connection.on('close', () => { console.log("reee");this.onPeerDisconnected(connection) });
+                    connection.on('close', () => { this.onPeerDisconnected(connection) });
                 }
                 // Handles when a peer connects to the host.
             this.onPeerConnected = (connection) => {

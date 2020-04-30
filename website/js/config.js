@@ -3,7 +3,7 @@ config.host = "peerjs.walsted.dev";
 config.path = "/p2p";
 config.port = 443;
 config.secure = true;
-config.debug = 3;
+config.debug = 0;
 config.config =  {
     'iceServers': [
         { url: 'stun:stun.l.google.com:19302' },

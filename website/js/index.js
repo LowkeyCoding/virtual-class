@@ -38,7 +38,6 @@ function onUsernameChange() {
         updateIcon();
         return;
     }
-    document.getElementById("username").value = username;
 }
 // Changes the icon
 function updateIcon() {
