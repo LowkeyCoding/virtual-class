@@ -87,7 +87,8 @@ class VirtualClass extends Peer {
                         type: 'user-joined',
                         username: connection.label,
                         icon: connection.metadata,
-                        peer: this.peerId
+                        peer: this.peerId,
+                        id: connection.peer
                     };
                     // send host icon and username
                     const hostData = {
@@ -103,7 +104,8 @@ class VirtualClass extends Peer {
                             type: 'connected-user',
                             username: connectedPeer.label,
                             icon: connectedPeer.metadata,
-                            peer: this.peerId
+                            peer: this.peerId,
+                            id: connectedPeer.id
                         }
                         if (connection.peer != connectedPeer.peer)
                             connection.send(_data);
@@ -131,6 +133,7 @@ class VirtualClass extends Peer {
                     const data = {
                         type: 'user-left',
                         peer: this.peerId,
+                        id: connection.peer,
                         username: connection.label
                     };
 
@@ -184,15 +187,16 @@ class VirtualClass extends Peer {
                     updateMessageBoard(data.peer, data.username, data.message);
                 } else if (data.type == "user-joined") {
                     updateMessageBoard(data.peer, "SYSTEM", `${data.username} joined.`);
-                    addPeer(data.peer, data.username, data.icon)
+                    console.log("addPeer:\n", "peer:", data.id,"\n", "username:", data.username,"\n","icon:", data.icon,"\n")
+                    addPeer(data.id, data.username, data.icon)
                 } else if (data.type == "user-left") {
                     updateMessageBoard(data.peer, "SYSTEM", `${data.username} left.`);
-                    console.log("peer", data.peer)
-                    removePeer(data.peer)
+                    removePeer(data.id)
                 } else if (data.type == "room-state-changed" && data.peer == this.hostConnection.peer) {
                     updateRoom(data)
                 } else if (data.type == "connected-user" && data.peer == this.hostConnection.peer) {
-                    addPeer(data.peer, data.username, data.icon)
+                    console.log("addPeer:\n", "peer:", data.id,"\n", "username:", data.username,"\n","icon:", data.icon,"\n")
+                    addPeer(data.id, data.username, data.icon)
                 }
             }
             this.onRoomStateChanged = () => {
