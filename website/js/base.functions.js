@@ -45,7 +45,6 @@ class VirtualClass extends Peer {
                     console.log('Connection to signaller establised.');
                     console.log(`Assigning id: ${id}`);
                     document.getElementById('selfId').innerText = 'ID: "' + id + '"';
-                    //this.updatePeerList();
                 }
                 // Handels if the host or peer is disconnected from the signaling server.
             this.onDisconnectFromSignaller = () => {

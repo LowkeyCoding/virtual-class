@@ -2,11 +2,27 @@
 var username = "";
 var iconURL = "";
 var iconColor = "";
+var roomId = "";
 
+const getParams = (url) => {
+    var params = {};
+    var parser = document.createElement('a');
+    parser.href = url;
+    var query = parser.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        params[pair[0]] = decodeURIComponent(pair[1]);
+    }
+    return params;
+};
 // Change Color Variable to random color and update the Icon
 function changeColor() {
     iconColor = (Math.random() * 0xFFFFFF << 0).toString(16);
     updateIcon();
+}
+function setRoomId() {
+    document.getElementById("roomID").value = roomId;
 }
 // Called when Icon Url is changed
 function onIconUrlChange() {
@@ -137,8 +153,12 @@ const getLastname = () => {
     //getRandomName();
     (setup = () => {
         changeColor();
+        roomId = getParams(window.location.href).roomId;
         username = getUsername();
         document.getElementById("name").innerHTML = username;
+        if (roomId) {
+            setRoomId();
+        }
         // Joins the selected host if the peer has been created
         if (username != "") {
             console.log(username);

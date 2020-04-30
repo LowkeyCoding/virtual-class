@@ -25,6 +25,7 @@ const signallerButton = document.getElementById("signallerBtn");
 
 const startElement = document.getElementById("start");
 const stopElement = document.getElementById("stop");
+const roomIDElement = document.getElementById("roomID");
 
 var displayMediaOptions = {
     video: {
@@ -40,7 +41,14 @@ startElement.addEventListener("click", function() {
 stopElement.addEventListener("click", function() {
     stopCapture();
 }, false);
-
+roomIDElement.addEventListener("click", function() {
+    var text = "vclass.walsted.dev/?roomId=" + vclass.peerId;
+    navigator.clipboard.writeText(text).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+    });
+})
 const startCapture = async () => {
     try {
         vclass.stream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
