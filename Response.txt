@@ -1,0 +1,5 @@
+# Antal elver
+# Elev liste 
+# Auto scroll chat *fixed
+# Anti XSS *fixed
+# fix white space in name *fixed
