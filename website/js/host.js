@@ -7,17 +7,21 @@ const vclass = new VirtualClass("host", {
     secure: config.secure,
     config: config.config
 }, params);
-document.getElementById("class-name").innerHTML = vclass.roomName;
-vclass.setup();
-addPeer(vclass.peerId, vclass.username, vclass.iconUrl)
+
 const streamElement = document.getElementById("stream");
-const message = document.getElementById('message');
+const message = document.getElementById("message");
+const hostPeerList = document.getElementById("hostPeerList");
+const userCount = document.getElementById("userCount");
+
+const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
+
 const signallerButton = document.getElementById("signallerBtn");
 
-const startElement = document.getElementById("start");
-const stopElement = document.getElementById("stop");
-const roomIDElement = document.getElementById("roomID");
-
+/*
+const roomId = document.getElementById("roomID");
+*/
+const roomIdButton = document.getElementById("roomIDCopy");
 var displayMediaOptions = {
     video: {
         cursor: "always",
@@ -26,20 +30,24 @@ var displayMediaOptions = {
     audio: true
 };
 
-startElement.addEventListener("click", function() {
+startButton.addEventListener("click", function() {
     startCapture();
 }, false);
-stopElement.addEventListener("click", function() {
+
+stopButton.addEventListener("click", function() {
     stopCapture();
 }, false);
-roomIDElement.addEventListener("click", function() {
-    var text = "vclass.walsted.dev/?roomId=" + vclass.peerId;
-    navigator.clipboard.writeText(text).then(function() {
-        console.log('Async: Copying to clipboard was successful!');
-    }, function(err) {
-        console.error('Async: Could not copy text: ', err);
-    });
+
+roomIdButton.addEventListener("click", function() {
+    if(!roomIdButton.disabled)
+        var text = "https://vclass.walsted.dev/?roomId=" + vclass.peerId;
+        navigator.clipboard.writeText(text).then(function() {
+            console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
 })
+
 const startCapture = async () => {
     try {
         vclass.stream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
@@ -51,9 +59,19 @@ const startCapture = async () => {
         console.error("Error: " + err);
     }
 }
+
 const stopCapture = () => {
     let tracks = streamElement.srcObject.getTracks();
     vclass.stream = false;
     tracks.forEach(track => track.stop());
     streamElement.srcObject = null;
 }
+(setup = () => {
+    // setup the vclass class
+    vclass.setup();
+    // Set the room name
+    document.getElementById("class-name").innerHTML = vclass.roomName;
+    addPeer(vclass.peerId, vclass.username, vclass.iconUrl)
+    // The button is disabled until the host is connected to the signaling server.
+    roomIdButton.disabled = true;
+})()

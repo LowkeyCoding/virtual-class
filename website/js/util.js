@@ -11,3 +11,10 @@
         return Math.floor(100000 + Math.random() * 900000).pad(6);
     };
 })(this);
+// ---- XSS protection -----
+// no more breaking shit M..XD
+var sanitizeHTML = (str) => {
+	var temp = document.createElement('div');
+	temp.textContent = str;
+	return temp.innerHTML;
+};

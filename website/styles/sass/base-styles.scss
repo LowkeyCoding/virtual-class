@@ -29,12 +29,12 @@ h2{
     font-weight: 600;
 }
 h3{
-
+    font-size: 24px;
 }
 p{
+    font-size: 16px;
     margin: 0;
 }
-
 // ---- ----
 
 // Remove default body margin
@@ -46,8 +46,8 @@ html,body,#app{
     height: 100%;
 }
 
-
 // ---- Element Style Overrides ---- 
+
 hr{
     width: 100%;
 }
@@ -71,7 +71,26 @@ input[type=text]:hover,input[type=text]:focus{
     width: 256px;
 }
 
-// ---- Common Classes ----
+// -------- Common Classes --------
+#app{
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+// ---- LAYOUT ----
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+// ---- Button ----
 .button{
     width: 100%;
     max-width: 256px;
@@ -89,37 +108,49 @@ input[type=text]:hover,input[type=text]:focus{
         @include unselectable();
     }
 }
-
 .button:hover{
     background-color:$color-primary-dark;
     border-radius:16px;
     transition: all 0.1s;
 }
+// ---- Button with text ----
+.button.text{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    max-width: none;
+    cursor: default;
 
+    .highlight{
+        height: 100%;
+        padding: 0 8px;
+        background-color: $color-primary;
+        border-radius:8px 0 0 8px;
+        cursor: pointer;
+    }
+
+    .content{
+        border: solid 1px $color-gray;
+        border-radius:0 8px 8px 0;
+    }
+}
+// ---- Circular Image ----
 img.circular {
     border-radius: 50%;
 }
+// Default Box Shadow ----
 .shadow{
     box-shadow: 0 0 4px 0px rgba(0,0,0,0.32);
 }
-.container{
 
+.rounded{
+    border-radius: 8px;
 }
-.red{
+
+.error{
     color: red;
 }
-.rounded{
-border-radius: 8px;
-}
-.row{
-    display: flex;
-    flex-direction: row;
-}
-.column{
-    display: flex;
-    flex-direction: column;
-}
-.error{
+.red{
     color: red;
 }
 .spreadContent{
@@ -128,15 +159,7 @@ border-radius: 8px;
     }
 }
 
-#app{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
+// -------- Application Specific --------
 #useroverlay{
     position: absolute;
     display: flex;

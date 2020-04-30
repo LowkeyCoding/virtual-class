@@ -14,3 +14,5 @@ config.config =  {
         }
     ] 
 }
+config.enableHostPeerList = true;
+config.enableUserCount = true;

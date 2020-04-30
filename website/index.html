@@ -53,7 +53,7 @@
                     <p>Profile picture link(Optional):</p>
                     <input id="iconurl" type="text" onchange="onIconUrlChange()"></input>
                 </div>
-                <div class="button" onclick="ToggleContainer()"><p>Confirm</p></div>
+                <div class="button" id="confirmButton" onclick="ToggleContainer()"><p>Confirm</p></div>
                 <div><p class="error" id="errorText"></p></div>
             </div>
             <div id="setup-room"  class="setup-container" style="display:none;">
@@ -61,7 +61,7 @@
                 <div class="spreadContent">
                     <h3>Join Classroom</h3>
                     <div class="textField"><p>Room ID:</p>   <input id="roomID" type="text" placeholder="Room ID"></input></div>
-                    <div class="button" onclick="joinRoom()"><p>Join</p></div>
+                    <div class="button" id="joinButton" onclick="joinRoom()"><p>Join</p></div>
                 </div>
                 <hr>
                 <div  class="spreadContent">
@@ -73,5 +73,6 @@
         </div>
     </div>
 </body>
+    <script src="js/util.js"></script>
     <script src="js/index.js"></script>
 </html>

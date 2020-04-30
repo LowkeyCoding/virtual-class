@@ -113,12 +113,16 @@ const createRoom = async() => {
 }
 
 // gets a random username for the user.
-const getRandomName = async() => {
+const genBot = async() => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&format=text");
     let username;
     request.onload = async() => {
-        document.getElementById("username").value = await request.response;
+        document.getElementById("Firstname").value = await request.response;
+        document.getElementById("Lastname").value = "{bot}";
+        onUsernameChange();
+        document.getElementById("confirmButton").click();
+        document.getElementById("joinButton").click();
     };
 
     request.send();
@@ -158,12 +162,14 @@ const getLastname = () => {
     //getRandomName();
     (setup = () => {
         changeColor();
-        roomId = getParams(window.location.href).roomId;
+        var params = getParams(window.location.href)
+        roomId = params.roomId;
         username = getUsername();
         document.getElementById("name").innerHTML = username;
-        if (roomId) {
+        if (params.genBot)
+            genBot();
+        if (roomId)
             setRoomId();
-        }
         // Joins the selected host if the peer has been created
         if (username != "") {
             console.log(username);

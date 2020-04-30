@@ -20,7 +20,12 @@ h2 {
   font-weight: 600;
 }
 
+h3 {
+  font-size: 24px;
+}
+
 p {
+  font-size: 16px;
   margin: 0;
 }
 
@@ -56,6 +61,25 @@ input[type=text]:hover, input[type=text]:focus {
   width: 256px;
 }
 
+#app {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .button {
   width: 100%;
   max-width: 256px;
@@ -81,6 +105,25 @@ input[type=text]:hover, input[type=text]:focus {
   transition: all 0.1s;
 }
 
+.button.text {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  max-width: none;
+  cursor: default;
+}
+.button.text .highlight {
+  height: 100%;
+  padding: 0 8px;
+  background-color: #1fbec4;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+}
+.button.text .content {
+  border: solid 1px #505050;
+  border-radius: 0 8px 8px 0;
+}
+
 img.circular {
   border-radius: 50%;
 }
@@ -89,37 +132,20 @@ img.circular {
   box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.32);
 }
 
-.red {
-  color: red;
-}
-
 .rounded {
   border-radius: 8px;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
 }
 
 .error {
   color: red;
 }
 
-.spreadContent div {
-  margin: 16px 0px;
+.red {
+  color: red;
 }
 
-#app {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.spreadContent div {
+  margin: 16px 0px;
 }
 
 #useroverlay {

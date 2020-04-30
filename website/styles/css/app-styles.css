@@ -20,7 +20,12 @@ h2 {
   font-weight: 600;
 }
 
+h3 {
+  font-size: 24px;
+}
+
 p {
+  font-size: 16px;
   margin: 0;
 }
 
@@ -56,6 +61,25 @@ input[type=text]:hover, input[type=text]:focus {
   width: 256px;
 }
 
+#app {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .button {
   width: 100%;
   max-width: 256px;
@@ -81,6 +105,25 @@ input[type=text]:hover, input[type=text]:focus {
   transition: all 0.1s;
 }
 
+.button.text {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  max-width: none;
+  cursor: default;
+}
+.button.text .highlight {
+  height: 100%;
+  padding: 0 8px;
+  background-color: #1fbec4;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+}
+.button.text .content {
+  border: solid 1px #505050;
+  border-radius: 0 8px 8px 0;
+}
+
 img.circular {
   border-radius: 50%;
 }
@@ -89,37 +132,20 @@ img.circular {
   box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.32);
 }
 
-.red {
-  color: red;
-}
-
 .rounded {
   border-radius: 8px;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
 }
 
 .error {
   color: red;
 }
 
-.spreadContent div {
-  margin: 16px 0px;
+.red {
+  color: red;
 }
 
-#app {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.spreadContent div {
+  margin: 16px 0px;
 }
 
 #useroverlay {
@@ -142,8 +168,29 @@ img.circular {
   flex-direction: row;
   justify-content: space-between;
 }
-#app .panel {
+
+/* Phone and tablet support*/
+@media (max-width: 1000px) {
+  #app {
+    flex-direction: column;
+  }
+  #app #classroom {
+    order: 1;
+  }
+  #app #classroom #peerList {
+    display: none;
+  }
+  #app #chat {
+    order: 2;
+  }
+  #app #overview {
+    order: 3;
+    display: none;
+  }
+}
+.panel {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   height: 100%;
   padding: 16px 16px;
@@ -152,6 +199,7 @@ img.circular {
 #classroom {
   flex-direction: row;
   justify-content: center;
+  flex-grow: 10;
 }
 #classroom .content {
   display: flex;
@@ -160,21 +208,28 @@ img.circular {
   max-width: 1024px;
   height: 100%;
 }
+#classroom .content #class-name {
+  margin-bottom: 10px;
+}
 #classroom .content video {
   flex-grow: 1;
   max-height: 576px;
+  max-width: 100%;
 }
 #classroom .content .row {
   margin-bottom: 16px;
 }
 #classroom .content .row .button {
-  margin: 0px 8px;
+  margin: 8px 8px;
   height: 24px;
   width: 128px;
 }
 #classroom .content .row .button p {
   line-height: 24px;
   font-size: 16px;
+}
+#classroom .content .row .button.text {
+  flex-grow: 1;
 }
 #classroom .content #peerList {
   display: flex;
@@ -198,16 +253,26 @@ img.circular {
 
 #chat {
   display: flex;
-  flex-direction: column;
   align-items: stretch;
-  max-width: 384px;
+  flex-grow: 2;
 }
 #chat #messageBoard {
   flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 16px 0px;
+  margin: 16px 0px;
   scroll-behavior: smooth;
+}
+#chat #messageBoard::-webkit-scrollbar {
+  width: 10px;
+}
+#chat #messageBoard::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+#chat #messageBoard::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
 }
 #chat #messageBoard .messageContainer {
   display: flex;
@@ -217,6 +282,50 @@ img.circular {
 }
 #chat #messageBox {
   max-width: none;
+}
+
+#overview #viewerCount {
+  display: flex;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+}
+#overview #viewerCount #userCount {
+  color: #1fbec4;
+}
+#overview #hostPeerList {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  overflow-y: auto;
+}
+#overview #hostPeerList::-webkit-scrollbar {
+  width: 10px;
+}
+#overview #hostPeerList::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+#overview #hostPeerList::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
+}
+#overview #hostPeerList .hostPeerListItem {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 24px;
+  margin-bottom: 8px;
+}
+#overview #hostPeerList .hostPeerListItem img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+#overview #hostPeerList .hostPeerListItem p {
+  height: 24px;
+  line-height: 24px;
 }
 
 /*# sourceMappingURL=app-styles.css.map */

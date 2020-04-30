@@ -10,8 +10,8 @@ class VirtualClass extends Peer {
             super(peerId, signallerParams);
             this.clientConnections = Immutable.Map({});
             this.peerId = peerId;
-            this.username = userParams.username || "Anonymous User";
-            this.iconUrl = userParams.iconUrl || "http://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+            this.username = sanitizeHTML(userParams.username) || "Anonymous User";
+            this.iconUrl = sanitizeHTML(userParams.iconUrl) || "http://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
             this.hostId = userParams.hostId || null;
             this.roomName = userParams.roomName || "Classroom"
             this.hostConnection;
@@ -44,7 +44,10 @@ class VirtualClass extends Peer {
             this.onConnectToSignaller = (id) => {
                     console.log('Connection to signaller establised.');
                     console.log(`Assigning id: ${id}`);
-                    document.getElementById('selfId').innerText = 'ID: "' + id + '"';
+                    if(typeof roomIdButton !== 'undefined'){
+                        roomIdButton.disabled = false;
+                    }
+                    //document.getElementById('selfId').innerText = 'ID: "' + id + '"';
                 }
                 // Handels if the host or peer is disconnected from the signaling server.
             this.onDisconnectFromSignaller = () => {
@@ -52,6 +55,7 @@ class VirtualClass extends Peer {
                     if (signallerButton) {
                         signallerButton.innerText = `✘ DISCONNECTED FROM SIGNALLER. RECONNECT?`;
                         signallerButton.disabled = false;
+                        roomIdButton.disabled = true;
                     }
                 }
                 // Handels when a peer recives a call from the host.
@@ -63,20 +67,17 @@ class VirtualClass extends Peer {
                 }
                 // Handels when the host recives a connection.
             this.onConnection = (connection) => {
-                    console.log(connection)
                     connection.on('open', () => { this.onPeerConnected(connection) });
 
                     connection.on('data', (data) => { this.onData(data, connection) });
 
-                    connection.on('disconnected', () => { this.onPeerDisconnected(connection); });
+                   connection.on('disconnected', () => { this.onPeerDisconnected(connection); });
 
                     connection.on('close', () => { this.onPeerDisconnected(connection) });
                 }
                 // Handles when a peer connects to the host.
             this.onPeerConnected = (connection) => {
-                    console.log(
-                        `Connection to ${connection.peer} established.`,
-                    );
+                    //console.log(`Connection to ${connection.peer} established.`);
 
                     this.clientConnections = this.clientConnections.set(
                         connection.peer,
@@ -187,7 +188,6 @@ class VirtualClass extends Peer {
                     updateMessageBoard(data.peer, data.username, data.message);
                 } else if (data.type == "user-joined") {
                     updateMessageBoard(data.peer, "SYSTEM", `${data.username} joined.`);
-                    console.log("addPeer:\n", "peer:", data.id,"\n", "username:", data.username,"\n","icon:", data.icon,"\n")
                     addPeer(data.id, data.username, data.icon)
                 } else if (data.type == "user-left") {
                     updateMessageBoard(data.peer, "SYSTEM", `${data.username} left.`);
@@ -195,7 +195,6 @@ class VirtualClass extends Peer {
                 } else if (data.type == "room-state-changed" && data.peer == this.hostConnection.peer) {
                     updateRoom(data)
                 } else if (data.type == "connected-user" && data.peer == this.hostConnection.peer) {
-                    console.log("addPeer:\n", "peer:", data.id,"\n", "username:", data.username,"\n","icon:", data.icon,"\n")
                     addPeer(data.id, data.username, data.icon)
                 }
             }
@@ -273,16 +272,25 @@ class VirtualClass extends Peer {
 
 // Add text to messageBoard Element.
 const updateMessageBoard = (peerid, username, message) => {
-        messageBoard.appendChild(messasgeTemplate(peerid, username, message));
-        messageBoard.scrollBy(0,messageBoard.scrollHeight);
-    }
-    // Adds a peer to the peer list.
+    messageBoard.appendChild(messasgeTemplate(peerid, username, message));
+    messageBoard.scrollBy(0,messageBoard.scrollHeight);
+}
+// Adds a peer to the peer list.
 const addPeer = (peerId, username, iconUrl) => {
-        peerList.appendChild(peerTemplate(peerId, username, iconUrl))
-    }
-    // Removes a peer from the peer list.
+    peerList.appendChild(peerTemplate(peerId, username, iconUrl));
+    if (typeof hostPeerList !== 'undefined' && config.enableHostPeerList)
+        hostPeerList.appendChild(hostPeerTemplate(peerId, username, iconUrl));
+    if (typeof userCount !== 'undefined' && config.enableUserCount)
+        userCount.innerText = parseInt(userCount.innerText)+1;
+}
+// Removes a peer from the peer list.
 const removePeer = (peerId) => {
     peerList.removeChild(document.getElementById(peerId));
+    console.log("pid",document.getElementById(peerId));
+    if (typeof hostPeerList !== 'undefined' && config.enableHostPeerList)
+        hostPeerList.removeChild(hostPeerList.children[peerId]);
+    if (typeof userCount !== 'undefined' && config.enableUserCount)
+        userCount.innerText = parseInt(userCount.innerText)-1;
 }
 
 // Update room name.
@@ -330,6 +338,7 @@ const getPeerId = async() => {
     res = await fetch('https://peerjs.walsted.dev/p2p/peerjs/id');
     return await res.text();
 }
+
 const getRandomName = async() => {
     res = await fetch("https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&format=text");
     return await res.text();
@@ -376,23 +385,38 @@ const messasgeTemplate = (peerId, username, message) => {
         containerElement.appendChild(usernameElement);
         containerElement.appendChild(messageElement);
         return containerElement;
-    }
-    // Template for generating new peers in the peers list.
+}
+
+// Template for generating new peers in the peers list.
 const peerTemplate = (peerId, username, iconURL) => {
     // icon Element
-    iconElement = document.createElement("img")
-    iconElement.className = "icon"
+    iconElement = document.createElement("img");
+    iconElement.className = "icon";
     iconElement.src = encodeURI(iconURL);
     // Container Element
-    containerElement = document.createElement("div")
+    containerElement = document.createElement("div");
     containerElement.id = peerId;
     containerElement.title = username;
     containerElement.appendChild(iconElement);
     return containerElement;
 }
 
-var sanitizeHTML = (str) => {
-	var temp = document.createElement('div');
-	temp.textContent = str;
-	return temp.innerHTML;
-};
+const hostPeerTemplate = (peerId, username, iconURL) => {
+    // icon Element
+    iconElement = document.createElement("img");
+    iconElement.className = "icon";
+    iconElement.src = encodeURI(iconURL);
+    // Username
+    usernameElement = document.createElement("p")
+    usernameElement.className = "username"
+    usernameElement.innerHTML = username;
+    // Container Element
+    containerElement = document.createElement("div");
+    containerElement.className = "hostPeerListItem"
+    containerElement.id = peerId;
+    containerElement.title = username;
+    // Append elements to container
+    containerElement.appendChild(iconElement);
+    containerElement.appendChild(usernameElement);
+    return containerElement;
+}
