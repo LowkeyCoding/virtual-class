@@ -63,12 +63,14 @@ class VirtualClass extends Peer {
                 }
                 // Handels when the host recives a connection.
             this.onConnection = (connection) => {
-
+                    console.log(connection)
                     connection.on('open', () => { this.onPeerConnected(connection) });
 
                     connection.on('data', (data) => { this.onData(data, connection) });
 
-                    connection.on('close', () => { this.onPeerDisconnected(connection) });
+                    connection.on('disconnected', () => { console.log("reee");this.onPeerDisconnected(connection); });
+
+                    connection.on('close', () => { console.log("reee");this.onPeerDisconnected(connection) });
                 }
                 // Handles when a peer connects to the host.
             this.onPeerConnected = (connection) => {
@@ -185,6 +187,7 @@ class VirtualClass extends Peer {
                     addPeer(data.peer, data.username, data.icon)
                 } else if (data.type == "user-left") {
                     updateMessageBoard(data.peer, "SYSTEM", `${data.username} left.`);
+                    console.log("peer", data.peer)
                     removePeer(data.peer)
                 } else if (data.type == "room-state-changed" && data.peer == this.hostConnection.peer) {
                     updateRoom(data)
@@ -267,6 +270,7 @@ class VirtualClass extends Peer {
 // Add text to messageBoard Element.
 const updateMessageBoard = (peerid, username, message) => {
         messageBoard.appendChild(messasgeTemplate(peerid, username, message));
+        messageBoard.scrollBy(0,messageBoard.scrollHeight);
     }
     // Adds a peer to the peer list.
 const addPeer = (peerId, username, iconUrl) => {
@@ -359,9 +363,9 @@ const messasgeTemplate = (peerId, username, message) => {
         }
         usernameElement.innerHTML = "[" + username + "]:";
         // Message Element
-        messageElement = document.createElement("p")
+        messageElement = document.createElement("code")
         messageElement.className = "message"
-        messageElement.innerHTML = "&nbsp;" + message;
+        messageElement.innerHTML = "&nbsp;" + sanitizeHTML(message);
         // Container Element
         containerElement = document.createElement("div")
         containerElement.className = "messageContainer";
@@ -382,3 +386,9 @@ const peerTemplate = (peerId, username, iconURL) => {
     containerElement.appendChild(iconElement);
     return containerElement;
 }
+
+var sanitizeHTML = (str) => {
+	var temp = document.createElement('div');
+	temp.textContent = str;
+	return temp.innerHTML;
+};

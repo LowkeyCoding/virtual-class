@@ -80,6 +80,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         padding: 16px 0px;
+        scroll-behavior: smooth;
 
         .messageContainer{
             display:flex;

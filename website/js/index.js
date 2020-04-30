@@ -70,8 +70,14 @@ const validateUsername = () => {
     if (_username.length > 2) {
         // checks if the username is less than 64 characters long.
         if (_username.length < 64) {
-            document.getElementById("errorText").innerHTML = "";
-            return true;
+            if (/\s/.test(_username[0]) || /\s/.test(_username[_username.length - 1])){
+                    // sets error message
+                    document.getElementById("errorText").innerHTML = "Username must not contain trailing whitespace characters.";
+                    return false;
+            } else {
+                document.getElementById("errorText").innerHTML = "";
+                return true;
+            }
         }
         // sets error message
         document.getElementById("errorText").innerHTML = "Username must be at less than 32 characters long.";

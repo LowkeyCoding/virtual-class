@@ -4,21 +4,12 @@ const signallerButton = document.getElementById("signallerBtn");
 // BASE DATA
 const params = getParams(window.location.href);
 const vclass = new VirtualClass("client", {
-    host: 'peerjs.walsted.dev',
-    port: 443,
-    path: '/p2p',
+    host: config.host,
+    port: config.port,
+    debug: config.debug,
+    path: config.path,
     secure: true,
-    debug:3,
-    config: {
-        'iceServers': [
-            { url: 'stun:stun.l.google.com:19302' },
-            {
-                url: 'turn:numb.viagenie.ca',
-                credential: 'muazkh',
-                username: 'webrtc@live.com'
-            }
-        ] 
-    }
+    config: config.config
 }, params);
 document.getElementById("class-name").innerHTML = vclass.roomName;
 vclass.setup();
@@ -31,4 +22,3 @@ vclass.setup();
     }
     setTimeout(setup, 50);
 })()
-

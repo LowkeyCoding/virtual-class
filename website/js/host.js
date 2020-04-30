@@ -1,20 +1,11 @@
 const params = getParams(window.location.href);
 const vclass = new VirtualClass("host", {
-    host: 'peerjs.walsted.dev',
-    port: 443,
-    path: '/p2p',
-    secure: true,
-    debug:3,
-    config: {
-        'iceServers': [
-            { url: 'stun:stun.l.google.com:19302' },
-            {
-                url: 'turn:numb.viagenie.ca',
-                credential: 'muazkh',
-                username: 'webrtc@live.com'
-            }
-        ] 
-    }
+    host: config.host,
+    port: config.port,
+    path: config.path,
+    debug: config.debug,
+    secure: config.secure,
+    config: config.config
 }, params);
 document.getElementById("class-name").innerHTML = vclass.roomName;
 vclass.setup();
