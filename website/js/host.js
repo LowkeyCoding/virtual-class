@@ -30,7 +30,7 @@ const roomIDElement = document.getElementById("roomID");
 var displayMediaOptions = {
     video: {
         cursor: "always",
-        frameRate: 144
+        frameRate: 48
     },
     audio: true
 };
@@ -66,4 +66,3 @@ const stopCapture = () => {
     tracks.forEach(track => track.stop());
     streamElement.srcObject = null;
 }
-
