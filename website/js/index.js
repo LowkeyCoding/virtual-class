@@ -4,18 +4,6 @@ var iconURL = "";
 var iconColor = "";
 var roomId = "";
 
-const getParams = (url) => {
-    var params = {};
-    var parser = document.createElement('a');
-    parser.href = url;
-    var query = parser.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        params[pair[0]] = decodeURIComponent(pair[1]);
-    }
-    return params;
-};
 // Change Color Variable to random color and update the Icon
 function changeColor() {
     iconColor = (Math.random() * 0xFFFFFF << 0).toString(16);
@@ -42,7 +30,7 @@ function onUsernameChange() {
 // Changes the icon
 function updateIcon() {
     console.log("update", username)
-        // If user uses a custom icon
+    // If user uses a custom icon
     if (document.getElementById("iconurl").value == "") {
         var letter = "?";
         console.log("ul", username.length)
@@ -69,10 +57,10 @@ const validateUsername = () => {
     if (_username.length > 2) {
         // checks if the username is less than 64 characters long.
         if (_username.length < 64) {
-            if (/\s/.test(_username[0]) || /\s/.test(_username[_username.length - 1])){
-                    // sets error message
-                    document.getElementById("errorText").innerHTML = "Username must not contain trailing whitespace characters.";
-                    return false;
+            if (/\s/.test(_username[0]) || /\s/.test(_username[_username.length - 1])) {
+                // sets error message
+                document.getElementById("errorText").innerHTML = "Username must not contain trailing whitespace characters.";
+                return false;
             } else {
                 document.getElementById("errorText").innerHTML = "";
                 return true;
@@ -90,7 +78,7 @@ const validateUsername = () => {
 // ToggleContainers the containers needed for the classroom mode.
 function ToggleContainer() {
     if (validateUsername()) {
-        if(roomId){
+        if (roomId) {
             joinRoom();
         }
         document.getElementById("setup-user").style.display = "none";
@@ -101,26 +89,26 @@ function ToggleContainer() {
 }
 
 // joins a given room
-const joinRoom = async() => {
+const joinRoom = async () => {
     location.href = '/pages/client.html?peerId=' + await getPeerId() + "&hostId=" + document.getElementById("roomID").value + "&username=" + username + "&iconUrl=" + encodeURIComponent(iconURL);
 }
 
 // creates a room with a given name
-const createRoom = async() => {
+const createRoom = async () => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://peerjs.walsted.dev/p2p/peerjs/id");
-    request.onload = async() => {
+    request.onload = async () => {
         location.href = '/pages/host.html?peerId=' + await getPeerId() + "&roomName=" + document.getElementById("roomName").value + "&username=" + username + "&iconUrl=" + encodeURIComponent(iconURL);
     };
     request.send();
 }
 
 // gets a random username for the user.
-const genBot = async() => {
+const genBot = async () => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/http://names.drycodes.com/1?separator=space&format=text");
     let username;
-    request.onload = async() => {
+    request.onload = async () => {
         document.getElementById("Firstname").value = await request.response;
         document.getElementById("Lastname").value = "{bot}";
         onUsernameChange();
@@ -132,11 +120,11 @@ const genBot = async() => {
 }
 
 // imports a steam username and profile picture based on the given steam id.
-const importSteamUser = async(steamid) => {
+const importSteamUser = async (steamid) => {
     let request = new XMLHttpRequest();
     request.open('GET', "https://cors.walsted.dev/https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=6FE88E34E12FA3462B9866F27A488AB9&steamids=" + steamid);
     let username;
-    request.onload = async() => {
+    request.onload = async () => {
         player = await JSON.parse(request.response).response.players[0];
         username = player.personaname;
         document.getElementById("name").innerHTML = username;
@@ -146,7 +134,7 @@ const importSteamUser = async(steamid) => {
     };
     request.send();
 }
-const getPeerId = async() => {
+const getPeerId = async () => {
     res = await fetch('https://peerjs.walsted.dev/p2p/peerjs/id');
     return await res.text();
 }
@@ -158,34 +146,34 @@ const getFirstname = () => {
     return document.getElementById("Firstname").value;
 }
 const genBots = (amount) => {
-    for(i=0;i<=amount;i++){
-        window.open("https://vclass.walsted.dev/?roomId="+roomId+"&genBot=true", "_blank");
+    for (i = 0; i <= amount; i++) {
+        window.open("https://vclass.walsted.dev/?roomId=" + roomId + "&genBot=true", "_blank");
     }
 }
 const getLastname = () => {
-        return document.getElementById("Lastname").value;
+    return document.getElementById("Lastname").value;
+}
+// Sets the username
+//getRandomName();
+(setup = () => {
+    changeColor();
+    var params = getParams(window.location.href)
+    roomId = params.roomId;
+    username = getUsername();
+    document.getElementById("name").innerHTML = username;
+    if (params.genBot)
+        genBot();
+    if (roomId)
+        setRoomId();
+    // Joins the selected host if the peer has been created
+    if (username != "") {
+        console.log(username);
+        updateIcon();
+        return;
     }
-    // Sets the username
-    //getRandomName();
-    (setup = () => {
-        changeColor();
-        var params = getParams(window.location.href)
-        roomId = params.roomId;
-        username = getUsername();
-        document.getElementById("name").innerHTML = username;
-        if (params.genBot)
-            genBot();
-        if (roomId)
-            setRoomId();
-        // Joins the selected host if the peer has been created
-        if (username != "") {
-            console.log(username);
-            updateIcon();
-            return;
-        }
-        setTimeout(setup, 50);
-    })()
+    setTimeout(setup, 50);
+})()
 
-    document.getElementById("confirmButton").addEventListener("click", ()=>{
+document.getElementById("confirmButton").addEventListener("click", () => {
 
-    })
+})

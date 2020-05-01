@@ -13,8 +13,7 @@ const message = document.getElementById("message");
 const hostPeerList = document.getElementById("hostPeerList");
 const userCount = document.getElementById("userCount");
 
-const startButton = document.getElementById("start");
-const stopButton = document.getElementById("stop");
+const captureButton = document.getElementById("capture");
 
 const signallerButton = document.getElementById("signallerBtn");
 
@@ -30,12 +29,8 @@ var displayMediaOptions = {
     audio: true
 };
 
-startButton.addEventListener("click", function() {
-    startCapture();
-}, false);
-
-stopButton.addEventListener("click", function() {
-    stopCapture();
+captureButton.addEventListener("click", function() {
+    toggleCapture();
 }, false);
 
 roomIdButton.addEventListener("click", function() {
@@ -46,26 +41,37 @@ roomIdButton.addEventListener("click", function() {
         }, function(err) {
             console.error('Async: Could not copy text: ', err);
         });
-})
+});
 
-const startCapture = async () => {
+const toggleCapture = async () => {
     try {
-        vclass.stream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-        audio = await (await navigator.mediaDevices.getUserMedia({ audio: true, video: false })).getAudioTracks()[0];
-        vclass.stream.addTrack(audio);
-        streamElement.srcObject = vclass.stream;
-        vclass.broadcast_stream(null);
+        if (captureButton.capturing) {
+            if(streamElement.srcObject){
+                let tracks = streamElement.srcObject.getTracks();
+                vclass.stream = false;
+                tracks.forEach(track => track.stop());
+                streamElement.srcObject = null;
+            }
+            captureButton.innerHTML = "<p>Share Screen</p>";
+            captureButton.capturing = false;
+        } else if (!captureButton.capturing) {
+            vclass.stream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+            audio = await (await navigator.mediaDevices.getUserMedia({ audio: true, video: false })).getAudioTracks()[0];
+            vclass.stream.addTrack(audio);
+            streamElement.srcObject = vclass.stream;
+            vclass.broadcast_stream(null);
+            captureButton.innerHTML = "<p>Stop Sharing</p>"
+            captureButton.capturing = true;
+        }
     } catch(err) {
+        if(err === "DOMException: Permission denied"){
+            captureButton.innerHTML = "<p>Start Capture</p>";
+            captureButton.capturing = false;
+        }
         console.error("Error: " + err);
     }
 }
 
-const stopCapture = () => {
-    let tracks = streamElement.srcObject.getTracks();
-    vclass.stream = false;
-    tracks.forEach(track => track.stop());
-    streamElement.srcObject = null;
-}
 (setup = () => {
     // setup the vclass class
     vclass.setup();
@@ -74,4 +80,5 @@ const stopCapture = () => {
     addPeer(vclass.peerId, vclass.username, vclass.iconUrl)
     // The button is disabled until the host is connected to the signaling server.
     roomIdButton.disabled = true;
+    captureButton.capturing = false;
 })()

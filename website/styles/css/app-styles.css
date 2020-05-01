@@ -64,7 +64,7 @@ input[type=text]:hover, input[type=text]:focus {
 #app {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
 }
 
@@ -78,6 +78,20 @@ input[type=text]:hover, input[type=text]:focus {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
 }
 
 .button {
@@ -167,6 +181,7 @@ img.circular {
 #app {
   flex-direction: row;
   justify-content: space-between;
+  align-items: stretch;
 }
 
 /* Phone and tablet support*/
@@ -212,9 +227,9 @@ img.circular {
   margin-bottom: 10px;
 }
 #classroom .content video {
-  flex-grow: 1;
   max-height: 576px;
   max-width: 100%;
+  flex-grow: 1;
 }
 #classroom .content .row {
   margin-bottom: 16px;
@@ -263,17 +278,6 @@ img.circular {
   margin: 16px 0px;
   scroll-behavior: smooth;
 }
-#chat #messageBoard::-webkit-scrollbar {
-  width: 10px;
-}
-#chat #messageBoard::-webkit-scrollbar-track {
-  background: #ddd;
-  border-radius: 20px;
-}
-#chat #messageBoard::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 20px;
-}
 #chat #messageBoard .messageContainer {
   display: flex;
 }
@@ -299,17 +303,6 @@ img.circular {
   justify-content: stretch;
   overflow-y: auto;
   scroll-behavior: smooth;
-}
-#overview #hostPeerList::-webkit-scrollbar {
-  width: 10px;
-}
-#overview #hostPeerList::-webkit-scrollbar-track {
-  background: #ddd;
-  border-radius: 20px;
-}
-#overview #hostPeerList::-webkit-scrollbar-thumb {
-  background: #666;
-  border-radius: 20px;
 }
 #overview #hostPeerList .hostPeerListItem {
   position: relative;

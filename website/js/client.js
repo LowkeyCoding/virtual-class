@@ -14,11 +14,13 @@ const vclass = new VirtualClass("client", {
 document.getElementById("class-name").innerHTML = vclass.roomName;
 vclass.setup();
 
+//
 (setup = () => {
     // Joins the selected host if the peer has been created
     if (vclass._open == true) {
         vclass.joinHost();
         return;
     }
+    //
     setTimeout(setup, 50);
 })()

@@ -64,7 +64,7 @@ input[type=text]:hover, input[type=text]:focus {
 #app {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
 }
 
@@ -78,6 +78,20 @@ input[type=text]:hover, input[type=text]:focus {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 20px;
 }
 
 .button {

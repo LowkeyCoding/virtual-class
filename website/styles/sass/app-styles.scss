@@ -3,6 +3,7 @@
 #app{
     flex-direction: row;
     justify-content: space-between;
+    align-items: stretch;
 }
 /* Phone and tablet support*/
 @media (max-width: 1000px) {
@@ -52,9 +53,9 @@
             margin-bottom: 10px;
         }
         video{
-            flex-grow: 1;
             max-height:576px;
             max-width: 100%;
+            flex-grow: 1;
         }
         .row{
             margin-bottom: 16px;
@@ -108,18 +109,6 @@
         margin: 16px 0px;
         scroll-behavior: smooth;
 
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-        &::-webkit-scrollbar-track {
-            background: #ddd;
-            border-radius: 20px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: #666;
-            border-radius: 20px;
-        }
-
         .messageContainer{
             display:flex;
             .username{
@@ -154,17 +143,7 @@
         overflow-y: auto;
         scroll-behavior: smooth;
         
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-        &::-webkit-scrollbar-track {
-            background: #ddd;
-            border-radius: 20px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: #666;
-            border-radius: 20px;
-        }
+        
         .hostPeerListItem {
             position: relative;
             display: flex;
