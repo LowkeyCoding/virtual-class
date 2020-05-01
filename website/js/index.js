@@ -91,8 +91,7 @@ const validateUsername = () => {
 function ToggleContainer() {
     if (validateUsername()) {
         if(roomId){
-            setRoomId();
-            document.getElementById("joinButton").click();
+            joinRoom();
         }
         document.getElementById("setup-user").style.display = "none";
         document.getElementById("setup-room").style.display = "flex";
