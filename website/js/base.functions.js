@@ -278,8 +278,10 @@ const updateMessageBoard = (peerid, username, message) => {
 // Adds a peer to the peer list.
 const addPeer = (peerId, username, iconUrl) => {
     peerList.appendChild(peerTemplate(peerId, username, iconUrl));
-    if (typeof hostPeerList !== 'undefined' && config.enableHostPeerList)
+    if (typeof hostPeerList !== 'undefined' && config.enableHostPeerList){
         hostPeerList.appendChild(hostPeerTemplate(peerId, username, iconUrl));
+        hostPeerList.scrollBy(0,hostPeerList.scrollHeight);
+    }
     if (typeof userCount !== 'undefined' && config.enableUserCount)
         userCount.innerText = parseInt(userCount.innerText)+1;
 }

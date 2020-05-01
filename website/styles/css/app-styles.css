@@ -298,6 +298,7 @@ img.circular {
   flex-direction: column;
   justify-content: stretch;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 #overview #hostPeerList::-webkit-scrollbar {
   width: 10px;

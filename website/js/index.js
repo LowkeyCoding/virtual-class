@@ -90,6 +90,10 @@ const validateUsername = () => {
 // ToggleContainers the containers needed for the classroom mode.
 function ToggleContainer() {
     if (validateUsername()) {
+        if(roomId){
+            setRoomId();
+            document.getElementById("joinButton").click();
+        }
         document.getElementById("setup-user").style.display = "none";
         document.getElementById("setup-room").style.display = "flex";
         document.getElementById("useroverlay").style.display = "flex";
@@ -122,7 +126,6 @@ const genBot = async() => {
         document.getElementById("Lastname").value = "{bot}";
         onUsernameChange();
         document.getElementById("confirmButton").click();
-        document.getElementById("joinButton").click();
     };
 
     request.send();
@@ -155,6 +158,11 @@ const getUsername = () => {
 const getFirstname = () => {
     return document.getElementById("Firstname").value;
 }
+const genBots = (amount) => {
+    for(i=0;i<=amount;i++){
+        window.open("https://vclass.walsted.dev/?roomId="+roomId+"&genBot=true", "_blank");
+    }
+}
 const getLastname = () => {
         return document.getElementById("Lastname").value;
     }
@@ -178,3 +186,7 @@ const getLastname = () => {
         }
         setTimeout(setup, 50);
     })()
+
+    document.getElementById("confirmButton").addEventListener("click", ()=>{
+
+    })
